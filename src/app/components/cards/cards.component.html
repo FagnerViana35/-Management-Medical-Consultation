@@ -1,0 +1,18 @@
+<div class="cards-container">
+    <div class="title">
+        {{title}}
+    </div>
+    <div>
+        {{subtitle}}
+    </div>
+    <div>
+        <img mat-card-image class="cards-img" [src]="url" [alt]="alt">
+    </div>
+    <mat-card-content>
+        <p>{{textContent}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>{{buttonleft}}</button>
+        <button mat-button>{{buttonright}}</button>
+      </mat-card-actions>
+</div>
