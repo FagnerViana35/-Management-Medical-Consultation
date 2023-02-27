@@ -1,0 +1,22 @@
+<div class="formularioLogin-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formularioLogin">
+        <div class="input-form">
+            <mat-form-field>
+                <label for="username">Username</label>
+                <input matInput type="text" id="username" formControlName="username">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="password">Password</label>
+                <input matInput type="password" id="password" formControlName="password">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="botao-form">
+            <mat-card-actions class="botaoLogin">
+                <button type="submit" [disabled]="!loginForm.valid">Login</button>
+            </mat-card-actions>
+        </div>
+        <a mat-button routerLink="/register" class="botaoRegister">Register</a>
+    </form>
+</div>

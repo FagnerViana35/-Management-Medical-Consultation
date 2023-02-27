@@ -1,0 +1,53 @@
+<div class="formularioCadastro-container">
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="formularioCadastro">
+        <div class="input-form">
+            <mat-form-field>
+                <mat-label for="fullname">Nome Completo</mat-label>
+                <input matInput type="text" id="fullname" formControlName="fullname">
+                
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+                <div *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+                    Nome Completo obrigatório
+                </div>
+
+                <mat-form-field>
+                <mat-label for="email">E-mail</mat-label>
+                <input matInput type="text" id="email" formControlName="email">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <div *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+                E-mail
+            </div>
+            <mat-form-field>
+                <mat-label for="phone">Telefone</mat-label>
+                <input matInput type="text" id="phone" formControlName="phone">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <div *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+                Telefone
+            </div>
+            <mat-form-field>
+                <mat-label for="password">Senha</mat-label>
+                <input matInput type="password" id="password" formControlName="password">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <div *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+                Senha
+            </div>
+            <mat-form-field>
+                <mat-label for="passwordConfirm">Confirma Senha</mat-label>
+                <input matInput type="passwordConfirm" id="passwordConfirm" formControlName="passwordConfirm">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <div *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+                Confirma Senha
+            </div>
+        </div>
+        <div class="botao-form">
+            <mat-card-actions class="botaoCadastro">
+                <button type="submit" [disabled]="!cadastroForm.valid">Register</button>
+            </mat-card-actions>
+        </div>
+    </form>
+</div>

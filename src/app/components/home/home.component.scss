@@ -9,5 +9,28 @@
 .section-cards{
     display: flex;
     justify-content: space-around;
-    
+    align-items: center;
+}
+
+.textLeft{
+    padding-left: 30px;
+}
+.botaoVerMais{
+    background-color: #004a9f;
+    padding: 10px;
+    border-radius: 4px;
+    color: aliceblue;
+}
+
+.title{
+    font-weight: bold;
+}
+.subtitle{
+    width: 80%;
+}
+
+@media (min-width: 1920px){
+    .sidebar{
+        margin-left: -20px !important;
+    }  
 }

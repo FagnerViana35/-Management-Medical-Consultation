@@ -1,27 +1,38 @@
+
 <div class="home">
   <div class="section-cards">
-    <div>
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+  <div class="textLeft">
+    <h1 class="title">
+      QUERO SER CLIENTE
+    </h1>
+    <p class="subtitle">
+      Nossa equipe de consultores está apta a lhe orientar sobre contratação de planos, portabilidade, orçamentos, cotações, propostas, etc.
+    </p>
+    <mat-card-actions class="botaoVerMais">
+      <button mat-button class="botao">Saber Mais</button>
+    </mat-card-actions>
+  </div>
+    <div *ngFor="let card of cardConsulta">
       <app-cards
-      [title] = "title"
-      [subtitle] = "subtitle"
-      [url] = "url"
-      [title] = "title"
-      [textContent] = "textContent"
-      [buttonright] = "buttonright"
-      [buttonleft] = "buttonleft"
-      [alt] = "alt"
+      [title] = "card.title"
+      [subtitle] = "card.subtitle"
+      [url] = "card.url"
+      [textContent] = "card.textContent"
+      [buttoncard] = "card.cardbutton"
+      [alt] = "card.alt"
       ></app-cards>
     </div>
-    <div>
+    <div *ngFor="let card of cardConvenio">
       <app-cards
-      [title] = "title"
-      [subtitle] = "subtitle"
-      [url] = "url"
-      [title] = "title"
-      [textContent] = "textContent"
-      [buttonright] = "buttonright"
-      [buttonleft] = "buttonleft"
-      [alt] = "alt"
+      [title] = "card.title"
+      [subtitle] = "card.subtitle"
+      [url] = "card.url"
+      [textContent] = "card.textContent"
+      [buttoncard] = "card.cardbutton"
+      [alt] = "card.alt"
       ></app-cards>
     </div>
   </div>

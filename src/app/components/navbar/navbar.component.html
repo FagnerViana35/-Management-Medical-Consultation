@@ -1,6 +1,16 @@
 <mat-toolbar class="container-navbar">
-  <img class="img-navbar" src="https://img.freepik.com/vetores-gratis/hospital-logo-design-vector-medical-cross_53876-136743.jpg?w=2000" alt="">
-  <span class="spacer"></span>
-  <app-avatar-perfil></app-avatar-perfil>
-</mat-toolbar>
+  <a routerLink="">
+    <img class="img-navbar" src="https://img.freepik.com/vetores-gratis/hospital-logo-design-vector-medical-cross_53876-136743.jpg?w=2000" alt="">
+  </a>
 
+  <span class="spacer"></span>
+  <mat-card-actions class="contatoLogin">
+    <div class="contato">
+      <div>0800 598 9698</div>
+    </div>
+    <div class="contato">
+      <div>SAC (11) 3413 9991</div>
+    </div>
+    <a mat-button class="botaoLogin" routerLink="login"><mat-icon>account_circle</mat-icon>Login</a>
+</mat-card-actions>
+</mat-toolbar>

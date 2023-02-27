@@ -12,8 +12,5 @@ export class CardsComponent {
   @Input() url!: string;
   @Input() alt!: string;
   @Input() textContent!: string;
-  @Input() buttonleft!: string;
-  @Input() buttonright!: string;
-  
-
+  @Input() buttoncard!: string;
 }
