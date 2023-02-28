@@ -23,10 +23,28 @@ export class CadastroFormularioComponent {
     }
     );
   }
-
+  get fullname(){
+    return this.cadastroForm.get('fullname')!;
+  }
+  get email(){
+    return this.cadastroForm.get('email')!;
+  }
+  get phone(){
+    return this.cadastroForm.get('phone')!;
+  }
+  get password(){
+    return this.cadastroForm.get('password')!;
+  }
+  get passwordConfirm(){
+    return this.cadastroForm.get('passwordConfirm')!;
+  }
   
   onSubmit(){
-    console.log('Formulario: ',this.cadastroForm.value);
+    if(this.cadastroForm.invalid){
+      return;
+    }
+    console.log(this.cadastroForm.value);
+    console.log('console', this.password.value)
   }
 
 }

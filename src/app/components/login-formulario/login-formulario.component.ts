@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginFormularioComponent {
   loginForm!: FormGroup;
 
+  constructor(){}
+
   ngOnInit() {
     this.loginForm = new FormGroup({
       'username': new FormControl('', [Validators.required, Validators.email]),
@@ -16,10 +18,20 @@ export class LoginFormularioComponent {
     });
   }
 
-  constructor(){}
+  get title(){
+    return this.loginForm.get('username')!;
+  }
+  get description(){
+    return this.loginForm.get('password')!;
+  }
 
-  onSubmit(){
+
+  submit(){
+    if(this.loginForm.invalid){
+      return;
+    }
     console.log(this.loginForm.value);
   }
+
 
 }

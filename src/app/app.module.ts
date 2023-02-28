@@ -68,9 +68,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule
 
   ],
-  exports: [ 
-    MatFormFieldModule, 
-    MatInputModule ],
+  // exports: [ 
+  //   MatFormFieldModule, 
+  //   MatInputModule ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],

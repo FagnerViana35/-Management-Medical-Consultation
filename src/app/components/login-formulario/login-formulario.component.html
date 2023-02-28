@@ -1,20 +1,28 @@
 <div class="formularioLogin-container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formularioLogin">
+    <form (ngSubmit)="submit()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
         <div class="input-form">
-            <mat-form-field>
+            <div>
                 <label for="username">Username</label>
-                <input matInput type="text" id="username" formControlName="username">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-            <mat-form-field>
+                <input type="text" id="username" formControlName="username">
+            </div>
+            <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+                <p>O E-mail é obrigatório</p>
+                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
+                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
+            </div>
+            <div>
                 <label for="password">Password</label>
-                <input matInput type="password" id="password" formControlName="password">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
+                <input type="password" id="password" formControlName="password">
+            </div>
+            <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+                <p>A senha é obrigatório</p>
+                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
+                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
+            </div>
         </div>
         <div class="botao-form">
             <mat-card-actions class="botaoLogin">
-                <button type="submit" [disabled]="!loginForm.valid">Login</button>
+                <button type="submit" >Login</button>
             </mat-card-actions>
         </div>
         <a mat-button routerLink="/register" class="botaoRegister">Register</a>
