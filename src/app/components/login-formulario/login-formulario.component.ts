@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { DialogErrorAcceptComponent } from './../dialog-error-accept/dialog-error-accept.component';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-formulario',
@@ -9,7 +12,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginFormularioComponent {
   loginForm!: FormGroup;
 
-  constructor(){}
+  username: string = 'gcampos@ccab.org.br';
+  senha: string = 'Teste@123';
+
+  constructor(private dialog: MatDialog, private router: Router){}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -18,6 +24,7 @@ export class LoginFormularioComponent {
     });
   }
 
+  @Output() dadosFormulario = new EventEmitter<any>();
   get title(){
     return this.loginForm.get('username')!;
   }
@@ -27,11 +34,17 @@ export class LoginFormularioComponent {
 
 
   submit(){
+    const form = this.loginForm.value;
+    if (this.username != form.username || this.senha != form.password) {
+      this.dialog.open(DialogErrorAcceptComponent);
+      return;
+    }else{
+      this.router.navigate(['']);
+    }
     if(this.loginForm.invalid){
       return;
     }
+    this.dadosFormulario.emit(this.loginForm);
     console.log(this.loginForm.value);
   }
-
-
 }

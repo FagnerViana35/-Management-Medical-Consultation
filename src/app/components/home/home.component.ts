@@ -14,6 +14,7 @@ export class HomeComponent {
     "cardbutton":"Consultas",
     "alt":"Imagem dos cards",
     "textContent":"Oferecemos uma ampla variedade de serviços médicos de qualidade para atender às suas necessidades.",
+    "routerLink": 'consult-medical'
 }]
 
 cardConvenio = [{

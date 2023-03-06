@@ -29,7 +29,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroFormularioComponent } from './components/cadastro-formulario/cadastro-formulario.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { ListaMedicosComponent } from './components/lista-medicos/lista-medicos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaServiceService } from './services/lista-service.service';
+import { CommonModule } from '@angular/common';
+import { SearchDoctorComponent } from './components/search-doctor/search-doctor.component';
+import { DialogErrorAcceptComponent } from './components/dialog-error-accept/dialog-error-accept.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConsultMedicalComponent } from './components/consult-medical/consult-medical.component';
+import { TableMedicalComponent } from './components/table-medical/table-medical.component';
+import { MatTableModule } from '@angular/material/table';
+import { AvailableTimesComponent } from './components/available-times/available-times.component';
 
 
 @NgModule({
@@ -45,9 +55,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LoginComponent,
     LoginFormularioComponent,
     CadastroFormularioComponent,
-    CadastroComponent
+    CadastroComponent,
+    ListaMedicosComponent,
+    SearchDoctorComponent,
+    DialogErrorAcceptComponent,
+    ConsultMedicalComponent,
+    TableMedicalComponent,
+    AvailableTimesComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -65,7 +82,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule, 
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatTableModule
 
   ],
   // exports: [ 
@@ -74,7 +94,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [ListaServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<mat-dialog-content>
+    <h2>Horários disponíveis para a consulta médica</h2>
+    <table class="my-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Disponibilidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horario of data.horarios">
+          <td>{{ horario.data }}</td>
+          <td>{{ horario.hora }}</td>
+          <td>{{ horario.disponivel ? 'Disponivel' : 'Não Disponivel' }}</td>
+          <td>
+            <input type="checkbox" [(ngModel)]="horario.escolhido" (change)="atualizarValorCheckbox(horario)"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Fechar</button>
+    <button mat-button (click)="salvarSelecionados()">Salvar</button>
+  </mat-dialog-actions>

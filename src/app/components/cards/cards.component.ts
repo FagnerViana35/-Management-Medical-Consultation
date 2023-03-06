@@ -13,4 +13,5 @@ export class CardsComponent {
   @Input() alt!: string;
   @Input() textContent!: string;
   @Input() buttoncard!: string;
+  @Input() routerLink!: string;
 }

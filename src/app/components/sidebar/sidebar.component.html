@@ -1,23 +1,23 @@
 <mat-toolbar>
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened">
-          menu
-      </mat-icon>
-      <mat-icon *ngIf="sidenav.opened">
-          close
-      </mat-icon>
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav="matSidenav">
 
-    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+    <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-<h4 class="name">John Smith</h4>
-<p class="designation">Software Engineer</p>
+    <h4 class="name">John Smith</h4>
+    <p class="designation">Software Engineer</p> -->
 
-<mat-divider></mat-divider>
+    <mat-divider></mat-divider>
     <button mat-button class="menu-button">
       <mat-icon>home</mat-icon>
       <a routerLink="home" class="link-menu">Home</a>
@@ -31,7 +31,7 @@
       <a routerLink="#" class="link-menu">About</a>
     </button>
     <mat-divider></mat-divider>
-    
+
     <button mat-button class="menu-button">
       <mat-icon>help</mat-icon>
       <a routerLink="#" class="link-menu">Help</a>
