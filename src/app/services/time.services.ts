@@ -18,4 +18,14 @@ import { Observable } from 'rxjs';
       const url = `${this.apiUrl}/horarios/?medicoId=${medicoId}`;
         return this.http.get<Horario[]>(url);
       }
+
+    updateHorario(id: Horario, updateObject: any): Observable<Horario> {
+      console.log(updateObject)
+      const url = `${this.apiUrl}/horarios/${id}`;
+      return this.http.put<any>(url, updateObject);
+    }
+
+    salvarHorariosSelecionados(horariosSelecionados: Horario[]) {
+      return this.http.post(`${this.apiUrl}/horarios`, horariosSelecionados);
+    }
   }

@@ -3,17 +3,20 @@
     {
       "id": 1,
       "nome": "Dr. João",
-      "especialidade": "Cardiologia"
+      "especialidade": "Cardiologia",
+      "checked": true
     },
     {
       "id": 2,
       "nome": "Dra. Maria",
-      "especialidade": "Pediatria"
+      "especialidade": "Pediatria",
+      "checked": true
     },
     {
       "id": 3,
       "nome": "Dr. José",
-      "especialidade": "Dermatologia"
+      "especialidade": "Dermatologia",
+      "checked": true
     }
   ],
   "horarios": [
@@ -22,8 +25,8 @@
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "08:00",
-      "disponivel": true,
-      "escolhido": false
+      "disponivel": false,
+      "escolhido": true
     },
     {
       "id": 2,
@@ -31,15 +34,15 @@
       "data": "2022-04-15",
       "hora": "09:00",
       "disponivel": false,
-      "escolhido": false
+      "escolhido": true
     },
     {
       "id": 3,
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "10:00",
-      "disponivel": true,
-      "escolhido": false
+      "disponivel": false,
+      "escolhido": true
     },
     {
       "id": 4,
@@ -70,7 +73,7 @@
       "medicoId": 3,
       "data": "2022-04-17",
       "hora": "08:00",
-      "disponivel": false,
+      "disponivel": true,
       "escolhido": false
     },
     {

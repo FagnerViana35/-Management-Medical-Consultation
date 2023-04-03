@@ -1,27 +1,47 @@
 <mat-dialog-content>
     <h2>Horários disponíveis para a consulta médica</h2>
-    <table class="my-table">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Horário</th>
-          <th>Disponibilidade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let horario of data.horarios">
-          <td>{{ horario.data }}</td>
-          <td>{{ horario.hora }}</td>
-          <td>{{ horario.disponivel ? 'Disponivel' : 'Não Disponivel' }}</td>
-          <td>
-            <input type="checkbox" [(ngModel)]="horario.escolhido" (change)="atualizarValorCheckbox(horario)"/>
-          </td>
-        </tr>
-      </tbody>
+    <table mat-table [dataSource]="horarios" class="mat-elevation-z8">
+    
+      <!-- Data Column -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="horario">
+        <th mat-header-cell *matHeaderCellDef> Horario </th>
+        <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+      </ng-container>
+    
+      <!-- disponivel Column -->
+      <ng-container matColumnDef="disponivel">
+        <th mat-header-cell *matHeaderCellDef> Disponivel </th>
+        <td mat-cell *matCellDef="let element">{{ element.disponivel ? 'Disponivel' : 'indisponivel' }}</td>
+      </ng-container>
+    
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="selecionar-consultar">
+       <th mat-header-cell *matHeaderCellDef> Selecionar Consultar</th>
+       <td mat-cell *matCellDef="let row">
+         <input type="checkbox" (click)="$event.stopPropagation()"
+                       (change)="onCheckboxChange(row, $event)"
+                       [checked]="!row.disponivel"
+                       [disabled]="!row.disponivel"/>
+       </td>
+     </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="selection.toggle(row)">
+      </tr>
+
     </table>
   </mat-dialog-content>
   
-  <mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Fechar</button>
-    <button mat-button (click)="salvarSelecionados()">Salvar</button>
+  <mat-dialog-actions class="botao-table">
+    <button class="botao-modal" mat-button (click)="onNoClick()">Fechar</button>
+    <button class="botao-modal" mat-button (click)="salvarSelecionados()">Salvar</button>
   </mat-dialog-actions>
+
+  <!-- https://stackblitz.com/angular/lrpjroljdly?embed=1&file=app/table-selection-example.html -->

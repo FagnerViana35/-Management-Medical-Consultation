@@ -42,7 +42,7 @@ export class TableMedicalComponent {
   colunas: string[] = ['nome', 'especialidade', 'horario'];
 
   abrirModal(medicoId: number): void {
-    console.log(medicoId);
+
     if (!this.dialogRef) {
       this.dialog.closeAll();
       console.log('Chegou:')
@@ -50,8 +50,9 @@ export class TableMedicalComponent {
     this.horariosService.getMedicoById(medicoId).subscribe(horarios => {
       this.horarios = horarios
       const dialog = this.dialog.open(AvailableTimesComponent, {
-        width: '500px',
-        position: { bottom: '0px', left: '50px' },
+        width: '1000px',
+        height:'350px',
+        position: { bottom: '100px', left: '24%' },
         data: {
           horarios: this.horarios,
         }
