@@ -1,4 +1,3 @@
-import { ListaServiceService } from 'src/app/services/lista-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
@@ -12,7 +11,7 @@ export class SearchDoctorComponent {
   searchForm: FormGroup;
   post: any;
 
-  constructor(private formBuilder: FormBuilder, private postService: ListaServiceService){
+  constructor(private formBuilder: FormBuilder){
 
     this.searchForm = this.formBuilder.group({
       postId: ''

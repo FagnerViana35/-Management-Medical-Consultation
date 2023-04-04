@@ -1,0 +1,47 @@
+<mat-content class="container">
+    <div class="container-table">
+        <h2 style="align-items: center;">Horários disponíveis para a consulta médica</h2>
+        <table mat-table [dataSource]="horariosConsulta" class="mat-elevation-z8">
+        
+          <!-- Data Column -->
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef> Data </th>
+            <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="horario">
+            <th mat-header-cell *matHeaderCellDef> Horario </th>
+            <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+          </ng-container>
+        
+          <!-- disponivel Column -->
+          <ng-container matColumnDef="disponivel">
+            <th mat-header-cell *matHeaderCellDef> Disponivel </th>
+            <td mat-cell *matCellDef="let element">{{ element.disponivel ? 'Disponivel' : 'indisponivel' }}</td>
+          </ng-container>
+        
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="selecionar-consultar">
+           <th mat-header-cell *matHeaderCellDef> Selecionar Consultar</th>
+           <td mat-cell *matCellDef="let row">
+             <input type="checkbox" (click)="$event.stopPropagation()"
+                           (change)="onCheckboxChange(row, $event)"
+                           [checked]="!row.disponivel"
+                           [disabled]="!row.disponivel"/>
+           </td>
+         </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              (click)="selection.toggle(row)">
+          </tr>
+    
+        </table>
+        <mat-dialog-actions class="botao-table">
+          <button mat-button (click)="back()">Voltar</button>
+          <button mat-button (click)="salvarSelecionados()">Salvar</button>
+        </mat-dialog-actions>
+    </div>
+  </mat-content>
+  

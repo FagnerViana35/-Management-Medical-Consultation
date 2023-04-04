@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,14 +30,14 @@ import { CadastroFormularioComponent } from './components/cadastro-formulario/ca
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaServiceService } from './services/lista-service.service';
 import { CommonModule } from '@angular/common';
 import { SearchDoctorComponent } from './components/search-doctor/search-doctor.component';
 import { DialogErrorAcceptComponent } from './components/dialog-error-accept/dialog-error-accept.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableMedicalComponent } from './components/table-medical/table-medical.component';
 import { MatTableModule } from '@angular/material/table';
-import { AvailableTimesComponent } from './components/available-times/available-times.component';
+import { HorariosConsultaComponent } from './components/horarios-consulta/horarios-consulta.component';
+import { ResultDialogComponent } from './components/result-dialog/result-dialog.component';
 
 
 @NgModule({
@@ -57,7 +57,8 @@ import { AvailableTimesComponent } from './components/available-times/available-
     SearchDoctorComponent,
     DialogErrorAcceptComponent,
     TableMedicalComponent,
-    AvailableTimesComponent
+    HorariosConsultaComponent,
+    ResultDialogComponent
   ],
   imports: [
     CommonModule,
@@ -81,7 +82,8 @@ import { AvailableTimesComponent } from './components/available-times/available-
     MatInputModule,
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
 
   ],
   // exports: [ 
@@ -90,7 +92,7 @@ import { AvailableTimesComponent } from './components/available-times/available-
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [ListaServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

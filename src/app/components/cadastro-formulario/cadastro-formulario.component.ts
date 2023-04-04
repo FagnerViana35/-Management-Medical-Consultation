@@ -1,7 +1,8 @@
-import { ListaServiceService } from 'src/app/services/lista-service.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from './CustomValidators';
+import { Usuario } from 'src/app/interfaces/users.interface';
+import { AuthService } from 'src/app/services/AuthService';
 
 @Component({
   selector: 'app-cadastro-formulario',
@@ -10,47 +11,38 @@ import { CustomValidators } from './CustomValidators';
 })
 export class CadastroFormularioComponent {
 
-  constructor(private formBuilder: FormBuilder, private livrosService: ListaServiceService){}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService){}
 
   cadastroForm!: FormGroup;
 
   ngOnInit() {
-    this.cadastroForm = this.formBuilder.group({
-      'nomeLivro': new FormControl('', [Validators.required]),
-      'autor': new FormControl('', [Validators.required]),
-      'editora': new FormControl('', [Validators.required, Validators.maxLength(11)]),
-      'numeroPaginas': new FormControl('', [Validators.required, Validators.minLength(6)] )
-      // 'passwordConfirm': new FormControl('', [Validators.required, Validators.minLength(6)])
+      this.cadastroForm = this.formBuilder.group({
+      'nomeCompleto': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required]),
+      'senha': new FormControl('', [Validators.required, Validators.minLength(6)])
     }
     );
   }
-  get fullname(){
-    return this.cadastroForm.get('nomeLivro')!;
+  get nomeCompleto(){
+    return this.cadastroForm.get('nomeCompleto')!;
   }
   get email(){
-    return this.cadastroForm.get('autor')!;
+    return this.cadastroForm.get('email')!;
   }
-  get phone(){
-    return this.cadastroForm.get('editora')!;
+  get senha(){
+    return this.cadastroForm.get('senha')!;
   }
-  get password(){
-    return this.cadastroForm.get('numeroPaginas')!;
-  }
-  // get passwordConfirm(){
-  //   return this.cadastroForm.get('passwordConfirm')!;
-  // }
   
-  onSubmit(){
-    const postData = this.cadastroForm.value;
-    this.livrosService.postLivros(postData).subscribe(response => {
-      console.log(response);
-    });
-
-    if(this.cadastroForm.invalid){
-      return;
-    }
-    console.log(this.cadastroForm.value);
-    console.log('console', this.password.value)
+  onSubmit() {
+    const usuario: Usuario = this.cadastroForm.value;
+    this.authService.cadastrar(usuario).subscribe(
+      (res) => {
+        console.log('Cadastro realizado com sucesso!');
+      },
+      (err) => {
+        console.error('Erro ao cadastrar usuário:', err);
+      }
+    );
   }
 
 }

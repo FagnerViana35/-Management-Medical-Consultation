@@ -1,21 +1,25 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Location } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Horario } from 'src/app/interfaces/Time.interface';
 import { Medical } from 'src/app/interfaces/medical.interface';
 import { HorariosService } from 'src/app/services/time.services';
-import { Location } from '@angular/common';
+import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
-  selector: 'app-available-times',
-  templateUrl: './available-times.component.html',
-  styleUrls: ['./available-times.component.scss']
+  selector: 'app-horarios-consulta',
+  templateUrl: './horarios-consulta.component.html',
+  styleUrls: ['./horarios-consulta.component.scss']
 })
-export class AvailableTimesComponent {
+export class HorariosConsultaComponent {
+
   ELEMENT_DATA: any = [];
   displayedColumns: string[] = ['data', 'horario', 'disponivel', 'selecionar-consultar'];
-  dataSource = new MatTableDataSource<Medical>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Horario>(this.ELEMENT_DATA);
   
   horarios: any;
   atualizado!: boolean;
@@ -26,11 +30,18 @@ export class AvailableTimesComponent {
   listaCheck!: Horario;
   checkedSelecionado: boolean = false;
   updateObject: any;
+  horariosConsulta: any;
+  id!: number;
 
+  emailData = {
+    from: '',
+    fromName: '',
+    to: '',
+    subject: '',
+    bodyHtml: ''
+  };
 
-  constructor(private location: Location, public dialogRef: MatDialogRef<AvailableTimesComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private horarioService: HorariosService) {
-    this.horarios = data.horarios;
-  }
+  constructor(private emailService: EmailService, private location: Location, private horarioService: HorariosService, private router: ActivatedRoute, private dialog: MatDialog, private route: Router) {}
 
   /** Whether the number of selected elements matches the total number of rows. */
   // isAllSelected() {
@@ -54,8 +65,10 @@ export class AvailableTimesComponent {
         disponivel: !event.target.checked
       };
       this.checkedSelecionado = event.target.checked;
+      console.log(this.checkedSelecionado)
     } else {
       this.checkedSelecionado = event.target.checked;
+      console.log(this.checkedSelecionado)
     }
   }
 
@@ -66,15 +79,20 @@ export class AvailableTimesComponent {
   }
   
   salvarSelecionados() {
+    const subject = `Nova mensagem de )`;
+    const text = `Mensagem:`;
+    const to = 'fagner.viana@domvsit.com.br';
+
     if (this.checkedSelecionado === true) {
-      this.horarios.filter((horario: any) => horario.id);
-      this.horarios.forEach((horario: any) => {
+      this.horariosConsulta.filter((horario: any) => horario.id);
+      this.horariosConsulta.forEach((horario: any) => {
         console.log(horario.selecionado)
           this.horarioService.updateHorario(this.listaCheck, this.updateObject).subscribe(
             (response) => {
               console.log('Horário atualizado com sucesso:', response);
-              this.dialogRef.close();
-              this.location.go(this.location.path());
+              setTimeout(() => {
+                this.route.navigate(['']);
+              }, 1000);
             },
             (error) => {
               console.error('Erro ao atualizar horário:', error);
@@ -83,14 +101,20 @@ export class AvailableTimesComponent {
       });
     }
   }
+  
+  back() {
+    this.location.back();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.id = this.router.snapshot.params['id'];
+    this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
+      console.log(horarios)
+      this.horariosConsulta = horarios;
+    })
+  }
   
 
-  onNoClick(): void {
-    this.dialogRef.close();
-    
-  }
-}
+  onNoClick(): void {}
 
-// https://stackblitz.com/angular/lrpjroljdly?embed=1&file=app/table-selection-example.html
+}

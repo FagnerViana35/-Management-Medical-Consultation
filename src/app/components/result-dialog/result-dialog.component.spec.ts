@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvailableTimesComponent } from './available-times.component';
+import { ResultDialogComponent } from './result-dialog.component';
 
-describe('AvailableTimesComponent', () => {
-  let component: AvailableTimesComponent;
-  let fixture: ComponentFixture<AvailableTimesComponent>;
+describe('ResultDialogComponent', () => {
+  let component: ResultDialogComponent;
+  let fixture: ComponentFixture<ResultDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AvailableTimesComponent ]
+      declarations: [ ResultDialogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AvailableTimesComponent);
+    fixture = TestBed.createComponent(ResultDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

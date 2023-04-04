@@ -2,40 +2,25 @@
     <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="formularioCadastro" #formDir="ngForm">
         <div class="input-form">
             <div>
-                <label for="fullname">Nome Livro</label>
-                <input type="text" id="fullname" formControlName="nomeLivro">
-                <div *ngIf="fullname.invalid && formDir.submitted" class="validation-error">
-                    <p>O Nome completo é obrigatório</p>
+                <label for="nomeCompleto">Nome Completo</label>
+                <input type="text" id="nomeCompleto" formControlName="nomeCompleto">
+                <div *ngIf="nomeCompleto.invalid && formDir.submitted" class="validation-error">
+                    <p>O nome completo é obrigatório</p>
                 </div>
-
                 <div>
-                    <label for="email">Autor</label>
-                    <input type="text" id="email" formControlName="autor">
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" formControlName="email">
                     <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
-                        <p>O E-mail é obrigatório</p>
+                        <p>O e-mail é obrigatório</p>
                     </div>
                 </div>
                 <div>
-                    <label for="phone">Editora</label>
-                    <input type="text" id="phone" formControlName="editora">
-                    <div *ngIf="phone.invalid && formDir.submitted" class="validation-error">
-                        <p>O telefone é obrigatório</p>
-                    </div>
-                </div>
-                <div>
-                    <label for="password">Numero Paginas</label>
-                    <input type="text" id="password" formControlName="numeroPaginas">
-                    <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
+                    <label for="senha">Senha</label>
+                    <input type="text" id="senha" formControlName="senha">
+                    <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
                         <p>A senha é obrigatória</p>
                     </div>
                 </div>
-                <!-- <div>
-                    <label for="passwordConfirm">Confirma Senha</label>
-                    <input type="passwordConfirm" id="passwordConfirm" formControlName="passwordConfirm">
-                    <div *ngIf="passwordConfirm.invalid && formDir.submitted" class="validation-error">
-                        <p>A senha é obrigatória</p>
-                    </div>
-                </div> -->
             </div>
             <div class="botao-form">
                 <mat-card-actions class="botaoCadastro">

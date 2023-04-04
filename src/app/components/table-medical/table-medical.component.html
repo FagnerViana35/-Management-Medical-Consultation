@@ -1,8 +1,11 @@
 <div class="table-medical">
   <div class="lateral-left">
-    <app-sidebar></app-sidebar>
   </div>
-    <div class="lateral-rigth">
+  <div class="lateral-rigth">
+      <div class="search-container">
+        <input type="text" placeholder="Pesquisar por nome" [(ngModel)]="nomeMedico">
+        <button (click)="buscarMedico()">Pesquisar</button>
+      </div>
       <table mat-table [dataSource]="dataSource">
         <!-- Colunas da tabela -->
         <ng-container matColumnDef="nome">
@@ -17,11 +20,16 @@
         
         <ng-container matColumnDef="horario">
           <th mat-header-cell *matHeaderCellDef> Horario Disponível</th>
-          <td mat-cell *matCellDef="let element"> <button (click)="abrirModal(element.id)">Horarios</button> </td>
+          <td mat-cell *matCellDef="let element"> <a [routerLink]="['/horarios-consulta', element.id]">Horarios</a> </td>
         </ng-container>
         <!-- Linhas da tabela -->
         <tr mat-header-row *matHeaderRowDef="colunas"></tr>
         <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
       </table>
+      <mat-paginator [length]="dataSource.data.length"
+          [pageSize]="10"
+          [pageSizeOptions]="[2, 3, 10, 25, 100]"
+          (page)="atualizarPagina($event)">
+      </mat-paginator>
   </div>
 </div>
