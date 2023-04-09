@@ -85,64 +85,64 @@
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 2,
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 3,
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "10:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 4,
       "medicoId": 2,
       "data": "2022-04-16",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 5,
       "medicoId": 2,
       "data": "2022-04-16",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 6,
       "medicoId": 2,
       "data": "2022-04-16",
       "hora": "10:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 7,
       "medicoId": 3,
       "data": "2022-04-17",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 8,
       "medicoId": 3,
       "data": "2022-04-17",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 9,
@@ -157,32 +157,32 @@
       "medicoId": 4,
       "data": "2022-04-15",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 11,
       "medicoId": 4,
       "data": "2022-04-15",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 12,
       "medicoId": 4,
       "data": "2022-04-15",
       "hora": "10:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 13,
       "medicoId": 4,
       "data": "2022-04-16",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 14,
@@ -205,16 +205,16 @@
       "medicoId": 5,
       "data": "2022-04-17",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 17,
       "medicoId": 5,
       "data": "2022-04-17",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 18,
@@ -245,16 +245,16 @@
       "medicoId": 6,
       "data": "2022-04-17",
       "hora": "08:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 22,
       "medicoId": 6,
       "data": "2022-04-17",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 23,
@@ -293,8 +293,8 @@
       "medicoId": 9,
       "data": "2022-04-17",
       "hora": "09:00",
-      "disponivel": false,
-      "escolhido": true
+      "disponivel": true,
+      "escolhido": false
     },
     {
       "id": 28,

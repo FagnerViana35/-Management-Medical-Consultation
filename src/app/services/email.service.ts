@@ -1,31 +1,30 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { Email, UserEmail } from '../interfaces/email.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
-  
-  apiUrl = 'https://api.elasticemail.com/v2/email/send';
 
-  constructor(private http: HttpClient) {}
+  dadosUser: UserEmail = { 
+   serviceID: 'service_5ca2yrg',
+   templateID: 'template_tdx9nje',
+   publicKey: '4IOlemI1ZtPcc7lrE'
+  }
 
-  sendEmail(emailData: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded'
-      })
+  constructor() {}
+
+  sendEmail(to_name: string, message: string, medico: string, emailSend: string, dia: string, horario: string): Promise<EmailJSResponseStatus> {
+    const templateParams = {
+      to_name: to_name,
+      message: message,
+      medico: medico,
+      emailSend: emailSend,
+      dia: dia,
+      horario: horario,
     };
-
-    const postData = new URLSearchParams();
-    postData.append('apikey', '745B92158E18E3201CB5071F93287904BB36FC31546F991222ACCB10CF6F18615C73A475900603ED2E473F7135F0306C');
-    postData.append('from', emailData.from);
-    postData.append('fromName', emailData.fromName);
-    postData.append('to', emailData.to);
-    postData.append('subject', emailData.subject);
-    postData.append('bodyHtml', emailData.bodyHtml);
-
-    return this.http.post(this.apiUrl, postData.toString(), httpOptions);
+    return emailjs.send(this.dadosUser.serviceID, this.dadosUser.templateID, templateParams, this.dadosUser.publicKey);
   }
 }

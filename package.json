@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.2.0",
+    "@emailjs/browser": "^3.11.0",
     "@sendgrid/mail": "^7.7.0",
     "elasticemail": "^0.2.0",
     "https": "^1.0.0",

@@ -79,20 +79,18 @@ export class HorariosConsultaComponent {
   }
   
   salvarSelecionados() {
-    const subject = `Nova mensagem de )`;
-    const text = `Mensagem:`;
-    const to = 'fagner.viana@domvsit.com.br';
-
     if (this.checkedSelecionado === true) {
+      this.emailService.sendEmail('Nome do paciente', 'Teste', 'Nome do médico', 'fagner.viana@domvsit.com.br', 'hoje', '28/06/2023')
+        .then((response: { status: any; text: any; }) => {
+          console.log('SUCCESS!', response.status, response.text);
+        }, (error: any) => {
+          console.log('FAILED...', error);
+        });
       this.horariosConsulta.filter((horario: any) => horario.id);
       this.horariosConsulta.forEach((horario: any) => {
-        console.log(horario.selecionado)
           this.horarioService.updateHorario(this.listaCheck, this.updateObject).subscribe(
             (response) => {
-              console.log('Horário atualizado com sucesso:', response);
-              setTimeout(() => {
                 this.route.navigate(['']);
-              }, 1000);
             },
             (error) => {
               console.error('Erro ao atualizar horário:', error);
