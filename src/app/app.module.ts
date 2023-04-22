@@ -38,6 +38,10 @@ import { TableMedicalComponent } from './components/table-medical/table-medical.
 import { MatTableModule } from '@angular/material/table';
 import { HorariosConsultaComponent } from './components/horarios-consulta/horarios-consulta.component';
 import { ResultDialogComponent } from './components/result-dialog/result-dialog.component';
+import { CadastroMedicoComponent } from './components/cadastro-medico/cadastro-medico.component';
+import { CadastroMedicoFormularioComponent } from './components/cadastro-medico-formulario/cadastro-medico-formulario.component';
+import { LoginMedicoComponent } from './components/login-medico/login-medico.component';
+import { LoginMedicoFormularioComponent } from './components/login-medico-formulario/login-medico-formulario.component';
 
 
 @NgModule({
@@ -58,7 +62,11 @@ import { ResultDialogComponent } from './components/result-dialog/result-dialog.
     DialogErrorAcceptComponent,
     TableMedicalComponent,
     HorariosConsultaComponent,
-    ResultDialogComponent
+    ResultDialogComponent,
+    CadastroMedicoComponent,
+    CadastroMedicoFormularioComponent,
+    LoginMedicoComponent,
+    LoginMedicoFormularioComponent
   ],
   imports: [
     CommonModule,

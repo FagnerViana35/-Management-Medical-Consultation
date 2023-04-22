@@ -2,9 +2,11 @@
   "medicos": [
     {
       "id": 1,
-      "nome": "Dr. João",
+      "nomeCompleto": "Dr. João",
+      "email": "joao@gmail.com",
       "especialidade": "Cardiologia",
-      "checked": true
+      "crm": "12345",
+      "senha": "123456"
     },
     {
       "id": 2,
@@ -77,6 +79,13 @@
       "nome": "Dra. Carla Mendes",
       "especialidade": "Psiquiatria",
       "checked": true
+    },
+    {
+      "nomeCompleto": "gustavo",
+      "email": "gu.manenti93@gmail.com",
+      "crm": "12345",
+      "senha": "123456",
+      "id": 14
     }
   ],
   "horarios": [
@@ -606,12 +615,6 @@
       "id": 1,
       "nomeCompleto": "Fagner Viana",
       "email": "fagner@gmail.com",
-      "senha": "123456"
-    },
-    {
-      "id": 2,
-      "nomeCompleto": "Gustavo Manenti",
-      "email": "gustavo@gmail.com",
       "senha": "123456"
     }
   ]

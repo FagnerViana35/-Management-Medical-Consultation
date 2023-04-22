@@ -4,7 +4,8 @@
     <div class="sidebar">
       <app-sidebar></app-sidebar>
     </div>
-  <div class="textLeft">
+  <div>
+    <div class="textLeft">
     <h1 class="title">
       QUERO SER CLIENTE
     </h1>
@@ -14,6 +15,18 @@
     <mat-card-actions class="botaoVerMais">
       <button mat-button class="botao">Saber Mais</button>
     </mat-card-actions>
+  </div>
+  <div class="textLeft">
+    <h1 class="title">
+      Médicos Colaboradores
+    </h1>
+    <p class="subtitle">
+      Se você é um médico em busca de se cadastrar em planos de saúde, nossa equipe de consultores pode ajudar.
+    </p>
+    <mat-card-actions class="botaoVerMais">
+      <button routerLink="login-medical" mat-button class="botao">Acessar Área de Médicos</button>
+    </mat-card-actions>
+  </div>
   </div>
     <div *ngFor="let card of cardConsulta">
       <app-cards
