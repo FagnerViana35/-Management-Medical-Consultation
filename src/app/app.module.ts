@@ -38,6 +38,7 @@ import { TableMedicalComponent } from './components/table-medical/table-medical.
 import { MatTableModule } from '@angular/material/table';
 import { HorariosConsultaComponent } from './components/horarios-consulta/horarios-consulta.component';
 import { ResultDialogComponent } from './components/result-dialog/result-dialog.component';
+import { DialogAcceptComponent } from './components/dialog-accept/dialog-accept.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ResultDialogComponent } from './components/result-dialog/result-dialog.
     DialogErrorAcceptComponent,
     TableMedicalComponent,
     HorariosConsultaComponent,
-    ResultDialogComponent
+    ResultDialogComponent,
+    DialogAcceptComponent
   ],
   imports: [
     CommonModule,

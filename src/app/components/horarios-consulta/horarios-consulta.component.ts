@@ -10,6 +10,7 @@ import { HorariosService } from 'src/app/services/time.services';
 import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
 import { EmailService } from 'src/app/services/email.service';
 import { DialogErrorAcceptComponent } from '../dialog-error-accept/dialog-error-accept.component';
+import { DialogAcceptComponent } from '../dialog-accept/dialog-accept.component';
 
 @Component({
   selector: 'app-horarios-consulta',
@@ -109,7 +110,7 @@ export class HorariosConsultaComponent {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogErrorAcceptComponent);
+    const dialogRef = this.dialog.open(DialogAcceptComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'ok') {
