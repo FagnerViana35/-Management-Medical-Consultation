@@ -16,7 +16,7 @@ export class MedicoService {
     return this.http.post<any>(`${this.apiUrl}/medicos`, medico);
   }
 
-  login(email: string, password: string) {
-    return this.http.post(`${this.apiUrl}/medicos`, { email, password });
+  login(email: string, senha: string) {
+    return this.http.get<any>(`${this.apiUrl}/medicos?email=${email}&password=${senha}`);
   }
 }

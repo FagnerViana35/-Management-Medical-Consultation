@@ -1,9 +1,9 @@
 <div class="formularioLogin-container">
-    <form (ngSubmit)="submit()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
         <div class="input-form">
             <div>
-                <label for="username">E-mail:</label>
-                <input type="text" id="username" formControlName="username">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" formControlName="email">
             </div>
             <div *ngIf="getEmail.invalid && formDir.submitted" class="validation-error">
                 <p>O E-mail é obrigatório</p>
@@ -11,8 +11,8 @@
                 <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
             </div>
             <div>
-                <label for="password">Senha:</label>
-                <input type="password" id="password" formControlName="password">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" formControlName="senha">
             </div>
             <div *ngIf="getSenha.invalid && formDir.submitted" class="validation-error">
                 <p>A senha é obrigatório</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="botao-form">
             <mat-card-actions class="botaoLogin">
-                <button type="submit" >Login</button>
+                <button type="submit" click="login()">Login</button>
             </mat-card-actions>
         </div>
         <a mat-button routerLink="/cadastro-medical" class="botaoRegister">Cadastre-se</a>

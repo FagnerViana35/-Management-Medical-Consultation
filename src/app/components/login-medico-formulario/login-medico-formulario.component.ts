@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogErrorAcceptComponent } from '../dialog-error-accept/dialog-error-accept.component';
+import { MedicoService } from 'src/app/services/medico.service';
 
 @Component({
   selector: 'app-login-medico-formulario',
@@ -15,7 +16,7 @@ export class LoginMedicoFormularioComponent {
   email: string = '';
   senha: string = '';
 
-  constructor(private dialog: MatDialog, private router: Router){}
+  constructor(private dialog: MatDialog, private router: Router, private medicoService: MedicoService){}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -24,7 +25,6 @@ export class LoginMedicoFormularioComponent {
     });
   }
 
-  @Output() dadosFormulario = new EventEmitter<any>();
   get getEmail(){
     return this.loginForm.get('email')!;
   }
@@ -33,18 +33,27 @@ export class LoginMedicoFormularioComponent {
   }
 
 
-  submit(){
-    const form = this.loginForm.value;
-    if (this.email != form.email || this.senha != form.senha) {
-      this.dialog.open(DialogErrorAcceptComponent);
-      return;
-    }else{
-      this.router.navigate(['']);
-    }
-    if(this.loginForm.invalid){
-      return;
-    }
-    this.dadosFormulario.emit(this.loginForm);
-    console.log(this.loginForm.value);
+  // submit(){
+  //   const form = this.loginForm.value;
+  //   if (this.email != form.email || this.senha != form.senha) {
+  //     this.dialog.open(DialogErrorAcceptComponent);
+  //     return;
+  //   }else{
+  //     this.router.navigate(['']);
+  //   }
+  //   if(this.loginForm.invalid){
+  //     return;
+  //   }
+  //   this.dadosFormulario.emit(this.loginForm);
+  //   console.log(this.loginForm.value);
+  // }
+  login() {
+      this.medicoService.login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(response => {
+        if (response.length === 1) {
+          this.router.navigate(['/']);
+        } else {
+          console.log("Erro de autenticação")
+        }
+      });
   }
 }
