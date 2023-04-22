@@ -42,7 +42,7 @@ import { CadastroMedicoComponent } from './components/cadastro-medico/cadastro-m
 import { CadastroMedicoFormularioComponent } from './components/cadastro-medico-formulario/cadastro-medico-formulario.component';
 import { LoginMedicoComponent } from './components/login-medico/login-medico.component';
 import { LoginMedicoFormularioComponent } from './components/login-medico-formulario/login-medico-formulario.component';
-
+import { DialogAcceptComponent } from './components/dialog-accept/dialog-accept.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,8 @@ import { LoginMedicoFormularioComponent } from './components/login-medico-formul
     CadastroMedicoComponent,
     CadastroMedicoFormularioComponent,
     LoginMedicoComponent,
-    LoginMedicoFormularioComponent
+    LoginMedicoFormularioComponent,
+    DialogAcceptComponent
   ],
   imports: [
     CommonModule,

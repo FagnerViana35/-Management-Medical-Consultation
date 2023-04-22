@@ -1,0 +1,33 @@
+.modal {
+    position: fixed;
+    top: 0%;
+    left: 40%;
+    background-color: aqua;
+    border-radius: 8px;
+    width: 400px;
+    height: 240px;
+    margin-top: 20px;
+    /* outras propriedades de estilo */
+  }
+
+  .erro img{
+    width: 80px;
+    padding-left: 140px;
+  }
+
+  .title{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .texto{
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .mat-mdc-dialog-actions {
+    justify-content: end;
+}
