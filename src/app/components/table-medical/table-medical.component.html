@@ -1,11 +1,24 @@
 <div class="table-medical">
   <div class="lateral-left">
   </div>
+  
   <div class="lateral-rigth">
-      <div class="search-container">
-        <input type="text" placeholder="Pesquisar por nome" [(ngModel)]="nomeMedico">
-        <button (click)="buscarMedico()">Pesquisar</button>
-      </div>
+    <div class="search-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Pesquisar por nome</mat-label>
+        <input matInput type="text" [(ngModel)]="nomeMedico">
+        <button matSuffix (click)="buscarMedicoNome()">Pesquisar</button>
+      </mat-form-field>
+    </div>
+
+    <div class="search-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Pesquisar por especialidade</mat-label>
+        <input matInput type="text" [(ngModel)]="especialidadeMedico">
+        <button matSuffix (click)="buscarMedicoEspecialidade()">Pesquisar</button>
+      </mat-form-field>
+    </div>
+
       <table mat-table [dataSource]="dataSource">
         <!-- Colunas da tabela -->
         <ng-container matColumnDef="nome">

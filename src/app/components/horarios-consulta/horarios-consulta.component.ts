@@ -9,6 +9,7 @@ import { Medical } from 'src/app/interfaces/medical.interface';
 import { HorariosService } from 'src/app/services/time.services';
 import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
 import { EmailService } from 'src/app/services/email.service';
+import { DialogErrorAcceptComponent } from '../dialog-error-accept/dialog-error-accept.component';
 
 @Component({
   selector: 'app-horarios-consulta',
@@ -41,7 +42,14 @@ export class HorariosConsultaComponent {
     bodyHtml: ''
   };
 
-  constructor(private emailService: EmailService, private location: Location, private horarioService: HorariosService, private router: ActivatedRoute, private dialog: MatDialog, private route: Router) {}
+  constructor(
+    private emailService: EmailService, 
+    private location: Location, 
+    private horarioService: HorariosService, 
+    private router: ActivatedRoute, 
+    public dialog: MatDialog, 
+    private route: Router
+    ) {}
 
   /** Whether the number of selected elements matches the total number of rows. */
   // isAllSelected() {
@@ -77,6 +85,23 @@ export class HorariosConsultaComponent {
       console.log('Horário atualizado com sucesso!');
     });
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogErrorAcceptComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'ok') {
+        console.log('Usuário clicou em OK');
+        // fazer algo
+      } else if (result === 'cancel') {
+        console.log('Usuário clicou em Cancelar');
+        // fazer algo
+      } else {
+        console.log('Usuário fechou o diálogo sem clicar em nada');
+        // fazer algo
+      }
+    });
+  }
   
   salvarSelecionados() {
     if (this.checkedSelecionado === true) {
@@ -105,6 +130,7 @@ export class HorariosConsultaComponent {
   }
 
   ngOnInit(): void {
+    this.openDialog()
     this.id = this.router.snapshot.params['id'];
     this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
       console.log(horarios)

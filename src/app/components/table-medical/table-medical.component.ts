@@ -20,7 +20,7 @@ export class TableMedicalComponent {
   medicos: Medical[] = [];
   medicoId!: number;
   nomeMedico: string = '';
-  filtroEspecialidade!: string;
+  especialidadeMedico: string = '';
   especialidades: any;
   todasEspecialidades: any;
 
@@ -56,21 +56,16 @@ export class TableMedicalComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  buscarMedico() {
+  buscarMedicoNome() {
     this.dataSource.filter = this.nomeMedico.trim().toLowerCase();
+    console.log(this.nomeMedico)
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim().toLowerCase();
-    let filteredData = this.dataSource.data.filter((item: any) => {
-      if (this.filtroEspecialidade === 'todos') {
-        return item.nome.toLowerCase().indexOf(filterValue) !== -1;
-      } else {
-        return item.especialidade === this.filtroEspecialidade && item.nome.toLowerCase().indexOf(filterValue) !== -1;
-      }
-    });
-    this.dataSource.data = filteredData;
+  buscarMedicoEspecialidade() {
+    this.dataSource.filter = this.especialidadeMedico.trim().toLowerCase();
   }
+
+  
 
   ngOnInit(): void {
     this.especialidades = [...new Set(this.medicos.map(item => item.especialidade))];
@@ -78,8 +73,12 @@ export class TableMedicalComponent {
     console.log(this.ELEMENT_DATA)
     this.medicoId = this.route.snapshot.params['medicoId'];
     this.gettableDr()
+    
     this.dataSource.filterPredicate = (data: any, filter: string) => {
       return data.nome?.toLowerCase().includes(filter);
+    };
+    this.dataSource.filterPredicate = (data: any, filter: string) => {
+      return data.especialidade.toLowerCase().includes(filter);
     };
   }
 }

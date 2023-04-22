@@ -85,8 +85,8 @@
       "medicoId": 1,
       "data": "2022-04-15",
       "hora": "08:00",
-      "disponivel": true,
-      "escolhido": false
+      "disponivel": false,
+      "escolhido": true
     },
     {
       "id": 2,

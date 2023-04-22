@@ -9,7 +9,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogErrorAcceptComponent {
   constructor(private dialogRef: MatDialogRef<DialogErrorAcceptComponent>) {}
 
-  onCloseClick(): void {
-    this.dialogRef.close();
+
+  ngOnInit(): void {
+  }
+
+  onYesClick(): void {
+    this.dialogRef.close('ok');
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close('cancel');
   }
 }
