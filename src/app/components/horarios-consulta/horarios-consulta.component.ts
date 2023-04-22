@@ -86,23 +86,6 @@ export class HorariosConsultaComponent {
     });
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogErrorAcceptComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'ok') {
-        console.log('Usuário clicou em OK');
-        // fazer algo
-      } else if (result === 'cancel') {
-        console.log('Usuário clicou em Cancelar');
-        // fazer algo
-      } else {
-        console.log('Usuário fechou o diálogo sem clicar em nada');
-        // fazer algo
-      }
-    });
-  }
-  
   salvarSelecionados() {
     if (this.checkedSelecionado === true) {
       this.emailService.sendEmail('Nome do paciente', 'Teste', 'Nome do médico', 'fagner.viana@domvsit.com.br', 'hoje', '28/06/2023')
@@ -124,13 +107,26 @@ export class HorariosConsultaComponent {
       });
     }
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogErrorAcceptComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'ok') {
+        this.salvarSelecionados()
+        console.log('Usuário clicou em OK');
+      } else if (result === 'cancel') {
+        console.log('Usuário clicou em Cancelar');
+      }
+    });
+  }
+  
   
   back() {
     this.location.back();
   }
 
   ngOnInit(): void {
-    this.openDialog()
     this.id = this.router.snapshot.params['id'];
     this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
       console.log(horarios)
