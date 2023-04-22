@@ -3,7 +3,7 @@
         <div class="input-form">
             <div>
                 <label for="nomeCompleto">Nome Completo</label>
-                <input type="text" id="nomeCompleto" formControlName="nomeCompleto">
+                <input type="text" id="nomeCompleto" formControlName="nomeCompleto" placeholder="Dr(a) nome do médico">
                 <div *ngIf="nomeCompleto.invalid && formDir.submitted" class="validation-error">
                     <p>O nome completo é obrigatório</p>
                 </div>
@@ -21,6 +21,15 @@
                         <p>O e-mail é obrigatório</p>
                     </div>
                 </div>
+                <div>
+                    <label for="especialidade">Especialidade</label>
+                    <select id="especialidade" formControlName="especialidade">
+                      <option *ngFor="let esp of especialidades" [value]="esp">{{ esp }}</option>
+                    </select>
+                    <div *ngIf="especialidade.invalid && formDir.submitted" class="validation-error">
+                      <p>A especialidade é obrigatória</p>
+                    </div>
+                  </div>
                 <div>
                     <label for="senha">Senha</label>
                     <input type="text" id="senha" formControlName="senha">

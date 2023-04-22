@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
     constructor(private http: HttpClient) {}
   
     getHorarios(): Observable<Horario[]> {
-      return this.http.get<Horario[]>(`${this.apiUrl}/horarios`);
+      return this.http.get<Horario[]>(`${this.apiUrl}/consultas`);
     }
 
     getMedicos(): Observable<Horario[]> {
@@ -19,17 +19,17 @@ import { Observable } from 'rxjs';
     }
 
     getMedicoById(medicoId: number): Observable<Horario[]> {
-      const url = `${this.apiUrl}/horarios/?medicoId=${medicoId}`;
+      const url = `${this.apiUrl}/consultas/?medicoId=${medicoId}`;
         return this.http.get<Horario[]>(url);
       }
 
     updateHorario(id: Horario, updateObject: any): Observable<Horario> {
       console.log(updateObject)
-      const url = `${this.apiUrl}/horarios/${id}`;
+      const url = `${this.apiUrl}/consultas/${id}`;
       return this.http.put<any>(url, updateObject);
     }
     
     salvarHorariosSelecionados(horariosSelecionados: Horario[]) {
-      return this.http.post(`${this.apiUrl}/horarios`, horariosSelecionados);
+      return this.http.post(`${this.apiUrl}/consultas`, horariosSelecionados);
     }
   }

@@ -1,0 +1,41 @@
+<div class="area-medica">
+    <h1>Bem-vindo à Área Médica</h1>
+  
+    <form>
+      <label for="paciente">Buscar paciente:</label>
+      <input type="text" id="paciente" name="paciente">
+      <button type="submit">Buscar</button>
+      <button routerLink="/area-medica-consulta">Cadastrar Consulta</button>
+    </form>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data de nascimento</th>
+          <th>Telefone</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>João da Silva</td>
+          <td>01/01/1980</td>
+          <td>(11) 9999-9999</td>
+          <td>
+            <button>Visualizar prontuário</button>
+            <button>Agendar consulta</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Maria Santos</td>
+          <td>15/05/1975</td>
+          <td>(11) 8888-8888</td>
+          <td>
+            <button>Visualizar prontuário</button>
+            <button>Agendar consulta</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

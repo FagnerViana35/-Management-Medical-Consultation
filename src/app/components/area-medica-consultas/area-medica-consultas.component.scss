@@ -1,0 +1,47 @@
+.formularioCadastro-container{
+    height: 100%;
+    padding: 40px 10px 40px 10px;
+    
+}
+.formularioCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botaoCadastro button{
+    text-align: center;
+    width: 100%;
+    padding: 7px 15px;
+    background-color: #004a9f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.botaoCadastro button:hover{
+     background-color: #004a9f;
+    
+   
+    opacity: 0.8; /* ajuste o valor conforme necessário */
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;   
+}
+
+.botao-form{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+mat-form-field label{
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+input{
+    width: 100%;
+    padding: 10px 5px;
+}

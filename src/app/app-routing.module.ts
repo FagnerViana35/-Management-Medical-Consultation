@@ -8,6 +8,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { HorariosConsultaComponent } from './components/horarios-consulta/horarios-consulta.component';
 import { CadastroMedicoComponent } from './components/cadastro-medico/cadastro-medico.component';
 import { LoginMedicoComponent } from './components/login-medico/login-medico.component';
+import { AreaMedicaComponent } from './components/area-medica/area-medica.component';
+import { AreaMedicaConsultasComponent } from './components/area-medica-consultas/area-medica-consultas.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'consult-medical', component: TableMedicalComponent},
   {path: 'cadastro-medical', component: CadastroMedicoComponent},
   {path: 'login-medical', component: LoginMedicoComponent},
+  {path: 'area-medica', component: AreaMedicaComponent},
+  {path: 'area-medica-consulta', component: AreaMedicaConsultasComponent}
 
 ];
 

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Medical } from 'src/app/interfaces/medical.interface';
+import { Medico } from 'src/app/interfaces/medico.interface';
 import { MedicoService } from 'src/app/services/medico.service';
 
 @Component({
@@ -10,7 +12,8 @@ import { MedicoService } from 'src/app/services/medico.service';
 export class CadastroMedicoFormularioComponent {
 
   cadastroForm!: FormGroup;
-
+  especialidades = [  'Cardiologia',  'Dermatologia',  'Endocrinologia',  'Ginecologia',  'Neurologia',  'Oftalmologia',  'Ortopedia',  'Pediatria'];
+  
   constructor(private formBuilder: FormBuilder, private medicoService: MedicoService){}
 
   ngOnInit() {
@@ -18,7 +21,8 @@ export class CadastroMedicoFormularioComponent {
     'nomeCompleto': new FormControl('', [Validators.required]),
     'email': new FormControl('', [Validators.required]),
     'crm': new FormControl('', [Validators.required]),
-    'senha': new FormControl('', [Validators.required, Validators.minLength(6)])
+    'senha': new FormControl('', [Validators.required, Validators.minLength(6)]),
+    'especialidade': new FormControl('', [Validators.required, Validators.minLength(6)])
   }
   );
   }
@@ -35,9 +39,12 @@ export class CadastroMedicoFormularioComponent {
   get senha(){
     return this.cadastroForm.get('senha')!;
   }
+  get especialidade(){
+    return this.cadastroForm.get('senha')!;
+  }
 
   onSubmit() {
-    const medico: any = this.cadastroForm.value;
+    const medico: Medico = this.cadastroForm.value;
     this.medicoService.cadastrar(medico).subscribe(
       (res) => {
         console.log('Cadastro realizado com sucesso!');

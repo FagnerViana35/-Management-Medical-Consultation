@@ -1,0 +1,27 @@
+<div class="formularioCadastro-container">
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="formularioCadastro" #formDir="ngForm">
+        <div class="input-form">
+            <div>
+                <div>
+                    <label for="date">Data da Consulta</label>
+                    <input type="date" id="data" formControlName="date" required>
+                    <div *ngIf="getDate.invalid && formDir.submitted" class="validation-error">
+                        <p>O data é obrigatório</p>
+                    </div>
+                </div>
+                <div>
+                    <label for="hora">Hora da Consulta</label>
+                    <input type="time" formControlName="hora" required>
+                    <div *ngIf="getHora.invalid && formDir.submitted" class="validation-error">
+                        <p>A hora é obrigatória</p>
+                    </div>
+                </div>
+            </div>
+            <div class="botao-form">
+                <mat-card-actions class="botaoCadastro">
+                    <button type="submit">Register</button>
+                </mat-card-actions>
+            </div>
+        </div>
+    </form>
+</div>

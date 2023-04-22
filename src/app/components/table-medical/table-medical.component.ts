@@ -35,14 +35,16 @@ export class TableMedicalComponent {
 
   gettableDr(): any {
     this.horariosService.getMedicos().subscribe(medicos => {
+      console.log(this.medicos)
       this.medicos = medicos
       this.ELEMENT_DATA = this.medicos.map(medico => ({
         id: medico.id,
-        nome: medico.nome,
+        nome: medico.nomeCompleto,
         especialidade: medico.especialidade
       }));
       this.dataSource.data = this.ELEMENT_DATA;
       this.todasEspecialidades = this.medicos
+      console.log(this.ELEMENT_DATA)
     })
   }
 
@@ -58,7 +60,6 @@ export class TableMedicalComponent {
 
   buscarMedicoNome() {
     this.dataSource.filter = this.nomeMedico.trim().toLowerCase();
-    console.log(this.nomeMedico)
   }
 
   buscarMedicoEspecialidade() {
@@ -69,13 +70,12 @@ export class TableMedicalComponent {
 
   ngOnInit(): void {
     this.especialidades = [...new Set(this.medicos.map(item => item.especialidade))];
-    
     console.log(this.ELEMENT_DATA)
     this.medicoId = this.route.snapshot.params['medicoId'];
     this.gettableDr()
     
     this.dataSource.filterPredicate = (data: any, filter: string) => {
-      return data.nome?.toLowerCase().includes(filter);
+      return data.nomeCompleto.toLowerCase().includes(filter);
     };
     this.dataSource.filterPredicate = (data: any, filter: string) => {
       return data.especialidade.toLowerCase().includes(filter);

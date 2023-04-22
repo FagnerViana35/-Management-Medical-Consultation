@@ -12,7 +12,7 @@ import { MedicoService } from 'src/app/services/medico.service';
 })
 export class LoginMedicoFormularioComponent {
   loginForm!: FormGroup;
-
+  data: any;
   email: string = '';
   senha: string = '';
 
@@ -32,28 +32,28 @@ export class LoginMedicoFormularioComponent {
     return this.loginForm.get('senha')!;
   }
 
-
-  // submit(){
-  //   const form = this.loginForm.value;
-  //   if (this.email != form.email || this.senha != form.senha) {
-  //     this.dialog.open(DialogErrorAcceptComponent);
-  //     return;
-  //   }else{
-  //     this.router.navigate(['']);
-  //   }
-  //   if(this.loginForm.invalid){
-  //     return;
-  //   }
-  //   this.dadosFormulario.emit(this.loginForm);
-  //   console.log(this.loginForm.value);
-  // }
-  login() {
-      this.medicoService.login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(response => {
-        if (response.length === 1) {
-          this.router.navigate(['/']);
-        } else {
-          console.log("Erro de autenticação")
-        }
+  async login() {
+   this.medicoService.login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(response => {
+      console.log(response);
+      this.data = response;
+      console.log("DATA:", this.data);
+      this.data.map((date: any) => {
+        localStorage.setItem('IdMedico', date.id);
+        localStorage.setItem('NomeMedico', date.nomeCompleto);
+        localStorage.setItem('EmailMedico', date.email);
       });
+      if (response.length === 1) {
+        if (response[0].senha === this.loginForm.value.senha) {
+          this.router.navigate(['/area-medica']);
+        } else {
+          alert("Erro de Senha! Verifique os dados");
+          console.log("Senha incorreta");
+        }
+      } else {
+        alert("Erro de E-mail! Verifique os dados");
+        console.log("E-mail incorreto");
+      }
+    });
   }
+  
 }

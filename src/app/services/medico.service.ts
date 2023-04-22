@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Medico } from '../interfaces/medico.interface';
+import { Consulta } from '../interfaces/consulta.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,11 @@ export class MedicoService {
   cadastrar(medico: Medico): Observable<Medico> {
     console.log(medico);
     return this.http.post<any>(`${this.apiUrl}/medicos`, medico);
+  }
+
+  cadastrarConsulta(consulta: Consulta): Observable<Medico> {
+    console.log(consulta);
+    return this.http.post<any>(`${this.apiUrl}/consultas`, consulta);
   }
 
   login(email: string, senha: string) {
