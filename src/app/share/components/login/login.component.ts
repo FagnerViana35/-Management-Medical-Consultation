@@ -1,7 +1,7 @@
+import { AuthService } from './../../../services/AuthService';
 import { DialogErrorAcceptComponent } from './../dialog-error-accept/dialog-error-accept.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../../services/AuthService';
 
 @Component({
   selector: 'app-login',

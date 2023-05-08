@@ -1,5 +1,5 @@
 .home{
-    background-image: url("../../../assets/imgs/imagem-fundo-home.jpg");
+    background-image: url("../../../../assets/imgs/imagem-fundo-home.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     width: auto;
@@ -10,6 +10,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: -50px;
+    padding-top: 200px;
+    padding-left: 100px;
+    width: 90%;
 }
 
 .textLeft{

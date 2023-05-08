@@ -1,0 +1,69 @@
+<!-- <mat-sidenav-container  class="container" color="primary" (backdropClick)="close()">
+  <mat-sidenav  class="ccab-light-theme"  (mouseleave)="close()" #sidenav  (keydown.escape)="close()" disableClose>
+    <mat-nav-list class="nav-list">
+
+      <a mat-button [routerLink]="['./']" [routerLinkActiveOptions]= "{exact: true}" routerLinkActive="active-link"  class="link">
+        <span>Home</span>
+      </a>
+
+      <a mat-button [routerLink]="['component/view-title-and-label']" routerLinkActive="active-link"  class="link">
+        <span>Title And Label</span>
+      </a>
+
+      <a mat-button [routerLink]="['component/view-translate']" routerLinkActive="active-link"  class="link">
+        <span>Translate</span>
+      </a>
+      
+      <a mat-button [routerLink]="['component/view-accept-cookies']" routerLinkActive="active-link"  class="link">
+        <span>Accept Cookies</span>
+      </a>
+      
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <mat-sidenav-container class="toggle-menu">
+      <mat-sidenav mode="side" opened (mouseenter)="sidenav.open()"   class="ccab-light-theme"  >
+        <mat-nav-list class="nav-list">
+          <a routerLink="/">
+            <i class="material-icons material-icons-outlined">menu</i>
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+<mat-sidenav-container>
+  <mat-toolbar>
+    <button mat-icon-button (click)="abrirSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav #sidenav>
+    <mat-toolbar>
+      <button mat-icon-button (click)="fecharSidebar()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active" (click)="fecharSidebar()">
+        <mat-icon>home</mat-icon>
+        <span>Início</span>
+      </a>
+      <a mat-list-item routerLink="/pagina1" routerLinkActive="active" (click)="fecharSidebar()">
+        <mat-icon>list</mat-icon>
+        <span>Página 1</span>
+      </a>
+      <a mat-list-item routerLink="/pagina2" routerLinkActive="active" (click)="fecharSidebar()">
+        <mat-icon>list</mat-icon>
+        <span>Página 2</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-content>
+    <router-outlet></router-outlet>
+  </mat-content>
+  
+</mat-sidenav-container>
+

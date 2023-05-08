@@ -19,9 +19,10 @@ export class TableMedicalComponent {
   horarios: any = [];
   medicos: Medical[] = [];
   medicoId!: number;
-  nomeMedico: string = '';
+  nomeMedico!: string;
   especialidadeMedico: string = '';
   especialidades: any;
+  nome: any;
   todasEspecialidades: any;
 
   constructor(public dialog: MatDialog, private horariosService: HorariosService, private route: ActivatedRoute,) { }
@@ -70,6 +71,7 @@ export class TableMedicalComponent {
 
   ngOnInit(): void {
     this.especialidades = [...new Set(this.medicos.map(item => item.especialidade))];
+    this.nome = [...new Set(this.medicos.map(item => item.nomeCompleto))];
     console.log(this.ELEMENT_DATA)
     this.medicoId = this.route.snapshot.params['medicoId'];
     this.gettableDr()

@@ -1,78 +1,54 @@
 {
   "medicos": [
     {
-      "nomeCompleto": "Fagner",
-      "email": "fagnerviana03@gmail.com",
-      "crm": "654321",
+      "nomeCompleto": "Dr. Gustavo Padilha",
+      "email": "gustavo@gmail.com",
+      "crm": "123456",
       "senha": "123456",
-      "especialidade": "Cardiologia",
+      "especialidade": "Ginecologia",
       "id": 1
     },
     {
-      "nomeCompleto": "Dra. Lurdes Mendes",
-      "email": "lurdes@gmail.com.br",
-      "crm": "326548",
+      "nomeCompleto": "Luiz",
+      "email": "luiz@gmail.com",
+      "crm": "123456",
       "senha": "123456",
-      "especialidade": "Neurologia",
+      "especialidade": "Cardiologia",
       "id": 2
     }
   ],
   "consultas": [
     {
       "medicoId": 1,
-      "data": "2023-04-23",
-      "hora": "16:26",
-      "disponivel": true,
-      "escolhido": false,
+      "data": "2023-04-10",
+      "hora": "20:00",
+      "disponivel": false,
+      "escolhido": true,
       "id": 1
     },
     {
       "medicoId": 1,
-      "data": "2023-04-24",
-      "hora": "18:02",
-      "disponivel": true,
-      "escolhido": false,
+      "data": "2023-04-20",
+      "hora": "20:46",
+      "disponivel": false,
+      "escolhido": true,
       "id": 2
     },
     {
-      "medicoId": 1,
+      "medicoId": 2,
       "data": "2023-04-20",
-      "hora": "16:08",
+      "hora": "20:49",
       "disponivel": true,
       "escolhido": false,
       "id": 3
     },
     {
-      "medicoId": 1,
-      "data": "2023-04-26",
-      "hora": "16:12",
-      "disponivel": true,
-      "escolhido": false,
-      "id": 4
-    },
-    {
       "medicoId": 2,
-      "data": "2023-04-12",
-      "hora": "20:06",
-      "disponivel": true,
-      "escolhido": false,
-      "id": 5
-    },
-    {
-      "medicoId": 2,
-      "data": "2023-04-26",
-      "hora": "19:10",
-      "disponivel": true,
-      "escolhido": false,
-      "id": 6
-    },
-    {
-      "medicoId": 2,
-      "data": "2023-04-24",
-      "hora": "16:00",
+      "data": "2023-04-18",
+      "hora": "18:00",
       "disponivel": false,
       "escolhido": true,
-      "id": 7
+      "id": 4
     }
   ],
   "users": [

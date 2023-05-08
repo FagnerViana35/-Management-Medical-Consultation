@@ -30,3 +30,6 @@ Dados do Emailjs:
 email: fagnerviana03@gmail.com
 senha: 280619V@l
 
+json-server --watch db.json
+
+
