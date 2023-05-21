@@ -7,6 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
 import { ShareModule } from './share/share.module';
 import { ShareRoutingModule } from './share/share-routing.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './services/AuthInterceptorService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { ShareRoutingModule } from './share/share-routing.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     BrowserModule,
     MatSidenavModule,
     AppRoutingModule,
@@ -26,7 +29,13 @@ import { ShareRoutingModule } from './share/share-routing.module';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

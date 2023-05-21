@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginComponent {
 
   email: string = 'gcampos@ccab.org.br';
-  password: string = 'Teste@123';
+  senha: string = 'Teste@123';
   dadoFormulario: any;
 
   constructor(private authService: AuthService, private dialog: MatDialog) { }
@@ -23,7 +23,7 @@ export class LoginComponent {
 
   login() {
     console.log('Aqui')
-    if (this.email != this.dadoFormulario.username || this.password != this.dadoFormulario.password) {
+    if (this.email != this.dadoFormulario.username || this.senha != this.dadoFormulario.senha) {
       alert('Verificar a Senha ou Email');
       return;
     }

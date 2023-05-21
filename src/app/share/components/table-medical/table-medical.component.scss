@@ -13,8 +13,30 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 20px;
+}
+.inputs-search .search-container:nth-child(1) input {
+  padding-top: 15px;
+
 }
 
+.inputs-search .search-container:nth-child(2) input {
+  padding-top: 15px;
+}
+
+.inputs-search .search-container button {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.inputs-search{
+  display: flex;
+  float: right;
+}
 .mat-form-field {
   width: 100%;
 }

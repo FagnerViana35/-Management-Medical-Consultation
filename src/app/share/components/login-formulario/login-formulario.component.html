@@ -1,21 +1,30 @@
 <div class="formularioLogin-container">
-    <form (ngSubmit)="submit()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
         <div class="input-form">
             <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" formControlName="username">
+                <label for="email">Email</label>
+                <input type="text" id="email" formControlName="email">
             </div>
-            <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
                 <p>O E-mail é obrigatório</p>
                 <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
                 <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" formControlName="password">
+                <label for="senha">Senha</label>
+                <input type="senha" id="senha" formControlName="senha">
             </div>
-            <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
                 <p>A senha é obrigatório</p>
+                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
+                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
+            </div>
+            <div>
+                <label for="cpf">CPF</label>
+                <input type="cpf" id="cpf" formControlName="cpf">
+            </div>
+            <div *ngIf="cpfUser.invalid && formDir.submitted" class="validation-error">
+                <p>A cpf é obrigatório</p>
                 <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
                 <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
             </div>

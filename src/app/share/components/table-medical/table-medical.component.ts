@@ -48,7 +48,13 @@ export class TableMedicalComponent {
       console.log(this.ELEMENT_DATA)
     })
   }
-
+  recarregarDados(){
+    this.gettableDr();
+    location.reload();
+  }
+  ngOnChanges(): void {
+    this.recarregarDados();
+  }
 
   dataSource = new MatTableDataSource<Element>(this.ELEMENT_DATA);
   colunas: string[] = ['nome', 'especialidade', 'horario'];
@@ -61,26 +67,18 @@ export class TableMedicalComponent {
 
   buscarMedicoNome() {
     this.dataSource.filter = this.nomeMedico.trim().toLowerCase();
+    console.log(this.dataSource.filter)
   }
 
   buscarMedicoEspecialidade() {
     this.dataSource.filter = this.especialidadeMedico.trim().toLowerCase();
+    console.log(this.dataSource.filter)
   }
 
   
 
   ngOnInit(): void {
-    this.especialidades = [...new Set(this.medicos.map(item => item.especialidade))];
-    this.nome = [...new Set(this.medicos.map(item => item.nomeCompleto))];
-    console.log(this.ELEMENT_DATA)
     this.medicoId = this.route.snapshot.params['medicoId'];
     this.gettableDr()
-    
-    this.dataSource.filterPredicate = (data: any, filter: string) => {
-      return data.nomeCompleto.toLowerCase().includes(filter);
-    };
-    this.dataSource.filterPredicate = (data: any, filter: string) => {
-      return data.especialidade.toLowerCase().includes(filter);
-    };
   }
 }
