@@ -18,3 +18,44 @@
     color: white;
     text-align: center;
   }
+
+
+  .formulario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -300px;
+    margin-left: -700px;
+    padding: 20px;
+  }
+  
+  .formulario label {
+    margin-right: 10px;
+  }
+  
+  .formulario input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .formulario button {
+    padding: 10px 20px;
+    background-color: #194a8b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formulario button[type="submit"] {
+    background-color: #85a2d6;
+    margin-right: 10px;
+  }
+
+  .formulario label {
+    margin-right: 10px;
+    color: rgb(18, 18, 119);
+    font-weight: bold;
+  }
