@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: -300px;
+    margin-top: -200px;
     margin-left: -700px;
     padding: 20px;
   }
@@ -50,12 +50,76 @@
   }
   
   .formulario button[type="submit"] {
-    background-color: #85a2d6;
+    background-color: #26498a;
     margin-right: 10px;
+  }
+
+  .area-medica button:hover {
+    background-color: #537faa;
   }
 
   .formulario label {
     margin-right: 10px;
     color: rgb(18, 18, 119);
+    font-weight: bold;
+  }
+
+
+  .area-medica table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .area-medica table th,
+  .area-medica table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .area-medica table th {
+    background-color: #194a8b;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .area-medica table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .area-medica table tbody tr:hover {
+    background-color: #e5e5e5;
+  }
+
+  .area-medica table button {
+    padding: 5px 10px;
+    background-color: #436fa8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .area-medica table button:hover {
+    background-color: #08539e;
+  }
+  
+  .area-medica table button:first-child {
+    margin-right: 5px;
+  }
+
+  .area-medica table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #194a8b;
+  }
+  
+  .area-medica table th {
+    background-color: #194a8b;
+    color: white;
     font-weight: bold;
   }
