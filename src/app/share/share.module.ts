@@ -8,7 +8,6 @@ import { AreaMedicaConsultasComponent } from './components/area-medica-consultas
 import { AreaMedicaComponent } from './components/area-medica/area-medica.component';
 import { AvatarPerfilComponent } from './components/avatar-perfil/avatar-perfil.component';
 import { CadastroFormularioComponent } from './components/cadastro-formulario/cadastro-formulario.component';
-import { CadastroMedicoFormularioComponent } from './components/cadastro-medico-formulario/cadastro-medico-formulario.component';
 import { CadastroMedicoComponent } from './components/cadastro-medico/cadastro-medico.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { CardsComponent } from './components/cards/cards.component';
@@ -65,7 +64,7 @@ import { RodapeComponent } from './components/rodape/rodape.component';
     HorariosConsultaComponent,
     ResultDialogComponent,
     CadastroMedicoComponent,
-    CadastroMedicoFormularioComponent,
+    CadastroFormularioComponent,
     LoginMedicoComponent,
     LoginMedicoFormularioComponent,
     DialogAcceptComponent,

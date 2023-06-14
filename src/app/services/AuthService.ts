@@ -11,7 +11,7 @@ import { LoginData } from '../interfaces/login.interface';
 export class AuthService {
   private isAuthenticated = false;
   token: string = '';
-  private apiUrl = 'https://localhost:7036/api';
+  private apiUrl = 'https://localhost:7211/api';
 
   constructor(private http: HttpClient) { }
 

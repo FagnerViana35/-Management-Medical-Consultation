@@ -3,24 +3,69 @@
         <div class="input-form">
             <div>
                 <div>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" formControlName="name">
+                    <!-- <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+                        <p>O name é obrigatório</p>
+                    </div> -->
+                </div>
+                <div>
+                    <label for="surname">Sobrenome</label>
+                    <input type="text" id="surname" formControlName="surname">
+                    <div *ngIf="surname.invalid && formDir.submitted" class="validation-error">
+                        <p>O e-mail é obrigatório</p>
+                    </div>
+                </div>
+                <div>
                     <label for="email">E-mail</label>
                     <input type="text" id="email" formControlName="email">
                     <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
                         <p>O e-mail é obrigatório</p>
                     </div>
                 </div>
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" formControlName="cpf">
-                <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
-                    <p>O cpf completo é obrigatório</p>
-                </div>
                 <div>
                     <label for="senha">Senha</label>
                     <input type="text" id="senha" formControlName="senha">
-                    <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
-                        <p>A senha é obrigatória</p>
-                    </div>
+                    <div *ngIf="senha.invalid && senha.touched" class="error-messages">
+                        <div *ngIf="senha.hasError('required')">
+                          A senha é obrigatória.
+                        </div>
+                        <div *ngIf="senha.hasError('senhaInvalida')">
+                          A senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial.
+                        </div>
+                      </div>
                 </div>
+                
+                <div *ngIf="typeUser === true; else crmBlock">
+                    <div>
+                      <label for="crm">CRM</label>
+                      <input type="text" id="crm" formControlName="crm">
+                      <div *ngIf="crm.invalid && formDir.submitted" class="validation-error">
+                        <p>O CRM é obrigatório</p>
+                      </div>
+                    </div>
+                    <div>
+                        <label for="especialidade">Especialidade</label>
+                        <input type="text" id="especialidade" formControlName="especialidade">
+                        <div *ngIf="especialidade.invalid && formDir.submitted" class="validation-error">
+                          <p>A especialidade é obrigatória</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="checkbox_escolha">
+                    <label for="myCheckbox">Coorperado:</label>
+                    <input type="checkbox" id="myCheckbox" [(ngModel)]="isChecked" (change)="handleChange($event)">
+                </div>
+                <ng-template #crmBlock>
+                    <div>
+                      <label for="cpf">CPF</label>
+                      <input type="text" id="cpf" formControlName="cpf">
+                      <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
+                        <p>O cpf completo é obrigatório</p>
+                      </div>
+                    </div>
+                </ng-template>
+                  
             </div>
             <div class="botao-form">
                 <mat-card-actions class="botaoCadastro">

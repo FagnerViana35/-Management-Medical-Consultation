@@ -59,13 +59,12 @@ export class LoginFormularioComponent {
       senha: this.senha.value,
       cpf: this.cpfUser.value,
     };
-
-    if (this.authService.login(loginData)) {
-      // Autenticação bem-sucedida, redirecionar para a página principal
+    this.authService.login(loginData)
+    
+    if(this.authService.login(loginData) == false) {
+      this.router.navigate(['/home']);
       this.loginFailed = false;
-      // Redirecionar para a página principal ou a rota desejada
-    } else {
-      // Autenticação falhou, exibir mensagem de erro
+    }else{
       this.loginFailed = true;
     }
   }
