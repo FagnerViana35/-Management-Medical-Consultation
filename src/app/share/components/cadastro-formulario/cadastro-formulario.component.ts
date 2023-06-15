@@ -15,7 +15,7 @@ export class CadastroFormularioComponent {
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){}
 
   cadastroForm!: FormGroup;
-  typeUser!: boolean;
+  typeUser: boolean = false;
   tipo_template!: number;
 
   senhaValidator(control: FormControl): { [key: string]: boolean } | null {

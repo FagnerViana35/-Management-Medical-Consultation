@@ -23,10 +23,10 @@
     border: none;
     border-radius: 4px;
 }
-.botaoLogin button:hover{
-//     background-color: #004a9f;
-// opacity: 0.8; /* ajuste o valor conforme necessário */
+.error-messages {
+    color: red;
 }
+  
 .input-form{
     display: flex;
     flex-direction: column;

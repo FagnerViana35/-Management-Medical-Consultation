@@ -5,14 +5,20 @@ import { AuthService } from './AuthService';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
+  
   constructor(private authService: AuthService) {}
 
+  
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
-    if (token) {
-      const headers = new HttpHeaders().set('Token_Authorization', `Bearer ${token}`);
-      request = request.clone({ headers });
-      console.log("headers",headers)
+    if (this.authService.isAuthenticated) {
+      const token = this.authService.getToken();
+      console.log(token)
+      // Clone a requisição original e adicione o cabeçalho de autorização
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
     }
 
     return next.handle(request);

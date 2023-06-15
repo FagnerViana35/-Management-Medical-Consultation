@@ -14,58 +14,62 @@ import { AuthService } from 'src/app/services/AuthService';
 export class LoginFormularioComponent {
   loginForm!: FormGroup;
   loginFailed = false;
-
+  token!: string; 
 
   constructor(private dialog: MatDialog, private router: Router, private authService: AuthService, private formBuilder: FormBuilder){}
 
+  senhaValidator(control: FormControl): { [key: string]: boolean } | null {
+    const senha = control.value;
+    const uppercaseRegex = /[A-Z]/;
+    const numberRegex = /[0-9]/;
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+  
+    if (!uppercaseRegex.test(senha) || !numberRegex.test(senha) || !specialCharRegex.test(senha)) {
+      return { senhaInvalida: true };
+    }
+  
+    return null;
+  }
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      'cpf': new FormControl('', [Validators.required]),
-      'email': new FormControl('', [Validators.required]),
-      'senha': new FormControl('', [Validators.required, Validators.minLength(6)])
+      'email': new FormControl('', [Validators.required, Validators.email]),
+      'senha': new FormControl('', [Validators.required, this.senhaValidator])
       }
     );
   }
 
   @Output() dadosFormulario = new EventEmitter<any>();
+
   get email(){
     return this.loginForm.get('email')!;
   }
   get senha(){
     return this.loginForm.get('senha')!;
   }
-  get cpfUser(){
-    return this.loginForm.get('cpf')!;
-  }
 
-
-  // submit(){
-  //   const form = this.loginForm.value;
-  //   if (this.username != form.username || this.senha != form.password) {
-  //     this.dialog.open(DialogErrorAcceptComponent);
-  //     return;
-  //   }else{
-  //     this.router.navigate(['']);
-  //   }
-  //   if(this.loginForm.invalid){
-  //     return;
-  //   }
-  //   this.dadosFormulario.emit(this.loginForm);
-  //   console.log(this.loginForm.value);
-  // }
   login(): void {
     const loginData: LoginData = {
       email: this.email.value,
       senha: this.senha.value,
-      cpf: this.cpfUser.value,
     };
-    this.authService.login(loginData)
+    this.authService.login(loginData).subscribe({
+      next: (response:any) => {
+        console.log(response)
+        localStorage.setItem('user', JSON.stringify(response));
+        
+      },
+      error: (error) => {
+        console.log('Ocorreu um erro:', error);
+        alert('Ocorreu um erro verifique os dados e tente novamente.')
+      },
+      complete: () => {
+        console.log("Usuario logado");
+        this.router.navigate(['/home']);
+      }
+    })
     
-    if(this.authService.login(loginData) == false) {
-      this.router.navigate(['/home']);
-      this.loginFailed = false;
-    }else{
-      this.loginFailed = true;
-    }
+    
   }
 }
+

@@ -1,51 +1,77 @@
-.formularioCadastro-container{
-    height: 100%;
-    padding: 40px 10px 40px 10px;
-    
-}
-.formularioCadastro{
+.formularioCadastro-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
+    height: 70vh;
+  }
 
-.botaoCadastro button{
+  @media screen and (min-width: 1920px){
+      .formularioCadastro-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+      }
+  }
+  
+  .formularioCadastro {
+    width: 400px;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  .titulo{
     text-align: center;
+  }
+  .input-form {
+    margin-bottom: 20px;
+  }
+  
+  .input-form > div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
     width: 100%;
-    padding: 7px 15px;
-    background-color: #004a9f;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .validation-error p {
+    color: red;
+    margin: 5px 0;
+  }
+  
+  .checkbox_escolha {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .botao-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .botaoCadastro button {
+    padding: 8px 16px;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    margin-bottom: 10px;
-}
-.botaoCadastro button:hover{
-//     background-color: #004a9f;
+    cursor: pointer;
+  }
+  
+  .botaoCadastro button:hover {
+    background-color: #0069d9;
+  }
     
-   
-// opacity: 0.8; /* ajuste o valor conforme necessário */
-}
-
-.input-form{
-    display: flex;
-    flex-direction: column;   
-}
-
-.botao-form{}
-
-mat-form-field label{
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-}
-input{
-    width: 100%;
-    padding: 10px 5px;
-}
-.checkbox_escolha{
-    display: flex;
-    align-items: center;
-}
 .error-messages {
     color: red;
 }

@@ -5,28 +5,20 @@
                 <label for="email">Email</label>
                 <input type="text" id="email" formControlName="email">
             </div>
-            <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
-                <p>O E-mail é obrigatório</p>
-                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
-                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
+            <div *ngIf="email.invalid && formDir.submitted" class="error-messages">
+                <p>O e-mail é obrigatório</p>
             </div>
             <div>
                 <label for="senha">Senha</label>
                 <input type="senha" id="senha" formControlName="senha">
             </div>
-            <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
-                <p>A senha é obrigatório</p>
-                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
-                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
-            </div>
-            <div>
-                <label for="cpf">CPF</label>
-                <input type="cpf" id="cpf" formControlName="cpf">
-            </div>
-            <div *ngIf="cpfUser.invalid && formDir.submitted" class="validation-error">
-                <p>A cpf é obrigatório</p>
-                <!-- <p *ngIf="title.errors?.['required']">O título é obrigatório</p> -->
-                <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
+            <div *ngIf="senha.invalid && senha.touched" class="error-messages">
+                <div *ngIf="senha.hasError('required')">
+                  A senha é obrigatória.
+                </div>
+                <div *ngIf="senha.hasError('senhaInvalida')">
+                  A senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial.
+                </div>
             </div>
         </div>
         <div class="botao-form">

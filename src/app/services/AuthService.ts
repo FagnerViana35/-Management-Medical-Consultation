@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../interfaces/users.interface';
-import { Observable } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 import { LoginData } from '../interfaces/login.interface';
 
 @Injectable({
@@ -9,10 +9,9 @@ import { LoginData } from '../interfaces/login.interface';
 })
 
 export class AuthService {
-  private isAuthenticated = false;
-  token: string = '';
+  token!: string;
   private apiUrl = 'https://localhost:7211/api';
-
+  isAuthenticated: boolean = true;
   constructor(private http: HttpClient) { }
 
   cadastrar(usuario: Usuario): Observable<Usuario> {
@@ -20,32 +19,30 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/AdicionaUsuarioIdentity`, usuario);
   }
 
-  login(loginData: LoginData): boolean {
-    const { email, senha, cpf } = loginData;
-    console.log('Titulo:',loginData);
-    this.http.post(`${this.apiUrl}/CriarTokenIdentity`, { email, senha, cpf }).subscribe(
-      (response: any) => {
-        this.token = response;
-        this.getToken()
-        if (response.authenticated) {
-          this.isAuthenticated = true;
-        } else {
-          this.isAuthenticated = false;
-        }
-      },
-      (error: any) => {
-        this.isAuthenticated = false;
-      }
-    );
+  login(loginData: LoginData): Observable<LoginData> {
+    const { email, senha } = loginData;
+    return this.http.post<LoginData>(`${this.apiUrl}/CriarTokenIdentity`, { email, senha })
+    .pipe(
+      take(1),
+      tap((response) => {
+        //Posso fazer logica aqui entro tbem
+        console.log(response)
+      })
+    )
+  }
 
-    return this.isAuthenticated;
+  setToken(token: string): void {
+    this.token = token;
   }
 
   getToken(): string {
-    const token = localStorage.setItem('token', this.token);
-    console.log('token', token);
-    return this.token; 
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    this.token = user && typeof user === 'object' ? user.token : '';
+    console.log(this.token)
+    return this.token;
   }
+
   
   logout(): void {
     this.isAuthenticated = false;
