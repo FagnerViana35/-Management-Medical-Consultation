@@ -46,9 +46,25 @@
       "medicoId": 2,
       "data": "2023-04-18",
       "hora": "18:00",
-      "disponivel": false,
-      "escolhido": true,
+      "disponivel": true,
+      "escolhido": false,
       "id": 4
+    },
+    {
+      "medicoId": 1,
+      "data": "2023-06-15",
+      "hora": "14:29",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 5
+    },
+    {
+      "medicoId": 1,
+      "data": "2023-06-21",
+      "hora": "16:38",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 6
     }
   ],
   "users": [

@@ -99,7 +99,7 @@ export class HorariosConsultaComponent {
       this.horariosConsulta.forEach((horario: any) => {
           this.horarioService.updateHorario(this.listaCheck, this.updateObject).subscribe(
             (response) => {
-                this.route.navigate(['']);
+                this.route.navigate(['/consult-medical']);
             },
             (error) => {
               console.error('Erro ao atualizar horário:', error);

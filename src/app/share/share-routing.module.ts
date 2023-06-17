@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TableMedicalComponent } from './components/table-medical/table-medical.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AreaUsuarioComponent } from './components/area-usuario/area-usuario.component';
+import { CadastroFormularioComponent } from './components/cadastro-formulario/cadastro-formulario.component';
 
 // import { DashboardComponent } from './dashboard.component';
 
@@ -20,11 +21,10 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-        {path: '', component: LoginComponent },
-        {path: 'home', component: HomeComponent },
+        {path: 'login', component: LoginComponent },
+        {path: '', component: HomeComponent },
         {path: 'horarios-consulta/:id', component: HorariosConsultaComponent},
-        {path: 'consult-medical', component: TableMedicalComponent},
-        {path: 'cadastro-medical', component: CadastroMedicoComponent},
+        {path: 'cadastro-medical', component: CadastroFormularioComponent},
         {path: 'login-medical', component: LoginMedicoComponent},
         {path: 'area-medica', component: AreaMedicaComponent},
         {path: 'area-medica-consulta', component: AreaMedicaConsultasComponent},
@@ -35,6 +35,7 @@ const routes: Routes = [
     component: AreaUsuarioComponent,
     children: [
         {path: 'register', component: CadastroComponent },
+        {path: 'consult-medical', component: TableMedicalComponent},
     ]
   }
 ];

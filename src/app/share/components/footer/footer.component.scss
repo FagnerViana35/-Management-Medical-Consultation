@@ -1,12 +1,25 @@
-.footer{
-  padding: 0;
-  position: absolute;
+.footer {
+  position: fixed;
+  left: 0;
   bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 20px;
+  text-align: center;
 }
+
 .footer-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  justify-content: center;
+}
+
+.footer img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.footer span {
+  font-size: 14px;
 }

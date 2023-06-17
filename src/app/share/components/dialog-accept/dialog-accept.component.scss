@@ -8,7 +8,9 @@
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9999; /* Valor alto para garantir que fique à frente */
 }
+
 
 .title {
   font-size: 18px;

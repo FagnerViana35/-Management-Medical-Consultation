@@ -8,7 +8,7 @@ import { Consulta } from '../interfaces/consulta.interface';
   providedIn: 'root'
 })
 export class MedicoService {
-  private apiUrl = 'https://localhost:7036/api';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
