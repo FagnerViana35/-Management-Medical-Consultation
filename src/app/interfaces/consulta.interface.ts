@@ -1,8 +1,8 @@
 export interface Consulta{
-    id?: number,
-    medicoId?: number,
-    data?: string,
-    hora?: string,
-    disponivel?: boolean,
-    escolhido?: boolean
+    id: number;
+    data_Hora_Consult: string;
+    data_Alteracao: string;
+    disponivel: string;   
+    escolhido: string;
+    userId: string;
 }

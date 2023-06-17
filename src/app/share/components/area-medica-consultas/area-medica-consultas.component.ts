@@ -36,28 +36,28 @@ export class AreaMedicaConsultasComponent {
 
   
   onSubmit() {
-    const consulta: Consulta = {
-      medicoId: this.idMedico,
-      data: this.cadastroForm.value.date,
-      hora: this.cadastroForm.value.hora,
-      disponivel: true,
-      escolhido: false
-    };
+    // const consulta: Consulta = {
+    //   medicoId: this.idMedico,
+    //   data: this.cadastroForm.value.date,
+    //   hora: this.cadastroForm.value.hora,
+    //   disponivel: true,
+    //   escolhido: false
+    // };
     // const consulta: Consulta = this.cadastroForm.value;
-    this.medicoService.cadastrarConsulta(consulta).subscribe(
-      (res) => {
-        alert('Consulta cadastrada com sucesso!')
-        console.log("Dados Consulta:",res)
-        console.log('Cadastro realizado com sucesso!');
-        this.cadastroForm.reset({
-          date: '',
-          hora: ''
-        });
-      },
-      (err) => {
-        console.error('Erro ao cadastrar usuário:', err);
-      }
-    );
+    // this.medicoService.cadastrarConsulta(consulta).subscribe(
+    //   (res) => {
+    //     alert('Consulta cadastrada com sucesso!')
+    //     console.log("Dados Consulta:",res)
+    //     console.log('Cadastro realizado com sucesso!');
+    //     this.cadastroForm.reset({
+    //       date: '',
+    //       hora: ''
+    //     });
+    //   },
+    //   (err) => {
+    //     console.error('Erro ao cadastrar usuário:', err);
+    //   }
+    // );
   }
 
 }

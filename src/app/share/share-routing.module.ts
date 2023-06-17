@@ -20,8 +20,8 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-        {path: '', component: LoginComponent },
-        {path: 'home', component: HomeComponent },
+        {path: 'login', component: LoginComponent },
+        {path: '', component: HomeComponent },
         {path: 'horarios-consulta/:id', component: HorariosConsultaComponent},
         {path: 'consult-medical', component: TableMedicalComponent},
         {path: 'cadastro-medical', component: CadastroMedicoComponent},
@@ -31,8 +31,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    component: AreaUsuarioComponent,
+    path: '', component: AreaUsuarioComponent,
     children: [
         {path: 'register', component: CadastroComponent },
     ]

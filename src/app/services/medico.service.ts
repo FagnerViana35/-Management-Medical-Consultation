@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Medico } from '../interfaces/medico.interface';
+import { Observable, take, tap } from 'rxjs';
 import { Consulta } from '../interfaces/consulta.interface';
+import { Medical } from '../interfaces/medical.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicoService {
-  private apiUrl = 'https://localhost:7036/api';
+  private apiUrl = 'https://localhost:7211/api';
 
   constructor(private http: HttpClient) { }
 
-  cadastrar(medico: Medico): Observable<Medico> {
+  cadastrar(medico: Medical): Observable<Medical> {
     console.log('Teste:',medico);
     return this.http.post<any>(`${this.apiUrl}/Add`, medico);
   }
 
-  cadastrarConsulta(consulta: Consulta): Observable<Medico> {
-    console.log(consulta);
-    return this.http.post<any>(`${this.apiUrl}/consultas`, consulta);
+  listaMedicos(): Observable<Medical> {
+    return this.http.get<Medical>(`${this.apiUrl}/ListMedicos`)
+    .pipe(
+      take(1),
+      tap((response) => {
+          console.log(response)
+      })
+    )
   }
   
   login(email: string, senha: string) {

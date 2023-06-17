@@ -2,6 +2,10 @@ import { Convenio } from "./convenio.interface";
 
 export interface Medical{
     id?: number;
-    nomeCompleto?: string;
+    name?: string;
+    surname: string;
+    email: string;
+    crm?: string;
+    cpf?: string;
     especialidade?: string;
 }

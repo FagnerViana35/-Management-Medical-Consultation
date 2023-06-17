@@ -26,6 +26,9 @@ cardConvenio = [{
     "textContent":"Nossa equipe de consultores está apta a lhe orientar sobre contratação de planos, e o melhor para você.",
 }]
 
+// const userString: string | null = localStorage.getItem('user') ?? null;
+// const user = userString ? JSON.parse(userString) : null;
+// const email = user?.email ?? '';
 
 
 

@@ -4,13 +4,12 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Horario } from 'src/app/interfaces/Time.interface';
 import { Medical } from 'src/app/interfaces/medical.interface';
-import { HorariosService } from 'src/app/services/time.services';
 import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
 import { EmailService } from 'src/app/services/email.service';
 import { DialogErrorAcceptComponent } from '../dialog-error-accept/dialog-error-accept.component';
 import { DialogAcceptComponent } from '../dialog-accept/dialog-accept.component';
+import { Consulta } from 'src/app/interfaces/consulta.interface';
 
 @Component({
   selector: 'app-horarios-consulta',
@@ -21,7 +20,7 @@ export class HorariosConsultaComponent {
 
   ELEMENT_DATA: any = [];
   displayedColumns: string[] = ['data', 'horario', 'disponivel', 'selecionar-consultar'];
-  dataSource = new MatTableDataSource<Horario>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Consulta>(this.ELEMENT_DATA);
   
   horarios: any;
   atualizado!: boolean;
@@ -29,7 +28,7 @@ export class HorariosConsultaComponent {
   menuItemSelected: any;
   isOptionalCookieChecked: boolean = true;
   selection = new SelectionModel<Medical>(true, []);
-  listaCheck!: Horario;
+  listaCheck!: Consulta;
   checkedSelecionado: boolean = false;
   updateObject: any;
   horariosConsulta: any;
@@ -46,7 +45,7 @@ export class HorariosConsultaComponent {
   constructor(
     private emailService: EmailService, 
     private location: Location, 
-    private horarioService: HorariosService, 
+    // private horarioService: HorariosService, 
     private router: ActivatedRoute, 
     public dialog: MatDialog, 
     private route: Router
@@ -81,46 +80,46 @@ export class HorariosConsultaComponent {
     }
   }
 
-  onUpdateHorario(id: any) {
-    this.horarioService.updateHorario(id, this.updateObject).subscribe(() => {
-      console.log('Horário atualizado com sucesso!');
-    });
-  }
+  // onUpdateHorario(id: any) {
+  //   this.horarioService.updateHorario(id, this.updateObject).subscribe(() => {
+  //     console.log('Horário atualizado com sucesso!');
+  //   });
+  // }
 
-  salvarSelecionados() {
-    if (this.checkedSelecionado === true) {
-      this.emailService.sendEmail('Nome do paciente', 'Teste', 'Nome do médico', 'fagner.viana@domvsit.com.br', 'hoje', '28/06/2023')
-        .then((response: { status: any; text: any; }) => {
-          console.log('SUCCESS!', response.status, response.text);
-        }, (error: any) => {
-          console.log('FAILED...', error);
-        });
-      this.horariosConsulta.filter((horario: any) => horario.id);
-      this.horariosConsulta.forEach((horario: any) => {
-          this.horarioService.updateHorario(this.listaCheck, this.updateObject).subscribe(
-            (response) => {
-                this.route.navigate(['']);
-            },
-            (error) => {
-              console.error('Erro ao atualizar horário:', error);
-            }
-          );
-      });
-    }
-  }
+  // salvarSelecionados() {
+  //   if (this.checkedSelecionado === true) {
+  //     this.emailService.sendEmail('Nome do paciente', 'Teste', 'Nome do médico', 'fagner.viana@domvsit.com.br', 'hoje', '28/06/2023')
+  //       .then((response: { status: any; text: any; }) => {
+  //         console.log('SUCCESS!', response.status, response.text);
+  //       }, (error: any) => {
+  //         console.log('FAILED...', error);
+  //       });
+  //     this.horariosConsulta.filter((horario: any) => horario.id);
+  //     this.horariosConsulta.forEach((horario: any) => {
+  //         this.horarioService.updateHorario(this.listaCheck, this.updateObject).subscribe(
+  //           (response) => {
+  //               this.route.navigate(['']);
+  //           },
+  //           (error) => {
+  //             console.error('Erro ao atualizar horário:', error);
+  //           }
+  //         );
+  //     });
+  //   }
+  // }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogAcceptComponent);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(DialogAcceptComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'ok') {
-        this.salvarSelecionados()
-        console.log('Usuário clicou em OK');
-      } else if (result === 'cancel') {
-        console.log('Usuário clicou em Cancelar');
-      }
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result === 'ok') {
+  //       this.salvarSelecionados()
+  //       console.log('Usuário clicou em OK');
+  //     } else if (result === 'cancel') {
+  //       console.log('Usuário clicou em Cancelar');
+  //     }
+  //   });
+  // }
   
   
   back() {
@@ -129,10 +128,10 @@ export class HorariosConsultaComponent {
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
-    this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
-      console.log(horarios)
-      this.horariosConsulta = horarios;
-    })
+    // this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
+    //   console.log(horarios)
+    //   this.horariosConsulta = horarios;
+    // })
   }
   
 

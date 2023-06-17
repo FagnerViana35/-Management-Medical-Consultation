@@ -65,7 +65,7 @@ export class LoginFormularioComponent {
       },
       complete: () => {
         console.log("Usuario logado");
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
       }
     })
     
