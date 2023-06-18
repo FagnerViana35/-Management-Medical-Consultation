@@ -5,9 +5,6 @@
   </header>
 
   <form class="formulario">
-    <!-- <label for="paciente">Buscar paciente:</label>
-    <input type="text" id="paciente" name="paciente" [(ngModel)]="termoBusca">
-    <button type="submit">Buscar</button> -->
     <button class="formulario-botao"routerLink="/area-medica-consulta">Cadastrar Consulta</button>
   </form>
   
@@ -37,23 +34,6 @@
       <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
       <mat-cell *matCellDef="let usuario"> {{ usuario.telefone }} </mat-cell>
     </ng-container>
-
-    <!-- <ng-container matColumnDef="telefone">
-      <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
-      <mat-cell *matCellDef="let usuario"> {{ usuario.telefone }} </mat-cell>
-    </ng-container> -->
-  
-    <!-- <ng-container matColumnDef="opcoes">
-      <mat-header-cell *matHeaderCellDef> Opções </mat-header-cell>
-      <mat-cell *matCellDef="let usuario">
-        <button mat-icon-button color="primary">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button mat-icon-button color="primary">
-          <mat-icon>event</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container> -->
   
     <!-- Cabeçalho da tabela -->
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -62,48 +42,3 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
-
-<!-- <div class="area-medica">
-
-  <header class="cabeçalho">
-      <h1>Bem-vindo à Área Médica</h1>
-  </header>
-
-  <form class="formulario">
-    <label for="paciente">Buscar paciente:</label>
-    <input type="text" id="paciente" name="paciente">
-    <button type="submit">Buscar</button>
-    <button routerLink="/area-medica-consulta">Cadastrar Consulta</button>
-  </form>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Data de nascimento</th>
-        <th>Telefone</th>
-        <th>Opções</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>João da Silva</td>
-        <td>01/01/1980</td>
-        <td>(11) 9999-9999</td>
-        <td>
-          <button>Visualizar prontuário</button>
-          <button>Agendar consulta</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Maria Santos</td>
-        <td>15/05/1975</td>
-        <td>(11) 8888-8888</td>
-        <td>
-          <button>Visualizar prontuário</button>
-          <button>Agendar consulta</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
