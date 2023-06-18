@@ -1,79 +1,71 @@
+/* Estilos gerais */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos da área médica */
 .area-medica {
   max-width: 800px;
   margin: 0 auto;
+  padding: 20px;
 }
 
+/* Estilos do cabeçalho */
 .cabeçalho {
   text-align: center;
   margin-bottom: 20px;
 }
 
+.cabeçalho h1 {
+  font-size: 24px;
+}
+
+/* Estilos do formulário */
 .formulario {
-  display: flex;
-  align-items: center;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.formulario label {
-  margin-right: 10px;
-}
-
-.formulario input[type="text"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-}
-
-.formulario button {
-  padding: 5px 10px;
+.formulario-botao {
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #007bff;
   color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.formulario button:hover {
-  background-color: #0056b3;
+/* Estilos da lista de pacientes */
+.pacientes {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-.mat-table {
+/* Estilos da tabela */
+.mat-elevation-z8 {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
+/* Estilos das células da tabela */
 .mat-header-cell,
 .mat-cell {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
 }
 
+/* Estilos das células do cabeçalho da tabela */
 .mat-header-row {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Estilos das linhas da tabela */
+.mat-row:nth-child(even) {
   background-color: #f2f2f2;
-}
-
-.mat-cell {
-  background-color: #fff;
-}
-
-.mat-cell button {
-  padding: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.mat-cell button:hover {
-  color: #007bff;
-}
-.pacientes{
-  display: flex;
-  justify-content: center;
-}
-.formulario-botao{
-  width: 20vw;
-  height: 5vh;
-  border-radius: 4px
 }
