@@ -11,6 +11,10 @@
     <div class="contato">
       <div>SAC (11) 3413 9991</div>
     </div>
-    <a mat-button class="botaoLogin" routerLink="login"><mat-icon>account_circle</mat-icon>Login</a>
+    <a mat-button (click)="logout()" class="botaoLogin" routerLink="login">
+      <mat-icon class="logout-icon">exit_to_app</mat-icon>
+      Logout
+    </a>
+    
 </mat-card-actions>
 </mat-toolbar>

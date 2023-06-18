@@ -2,6 +2,74 @@
   
   <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="formularioCadastro" #formDir="ngForm">
     <div class="titulo">
+        <h1>Formulário Paciente</h1>
+    </div>
+        <div class="input-form">
+            <div>
+                <div>
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" formControlName="nome">
+                    <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
+                        <p>O name é obrigatório</p>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" formControlName="email">
+                    <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+                        <p>O e-mail é obrigatório</p>
+                    </div>
+                </div>
+
+                <div>
+                  <label for="crm">Telefone</label>
+                  <input type="text" id="telefone" formControlName="telefone">
+                  <div *ngIf="telefone.invalid && formDir.submitted" class="validation-error">
+                    <p>O Telefone é obrigatório</p>
+                  </div>
+                </div>
+
+                <div>
+                    <label for="data_nascimento">Data Nascimento</label>
+                    <input type="date" id="data_nascimento" formControlName="data_nascimento">
+                    <div *ngIf="data_nascimento.invalid && formDir.submitted" class="validation-error">
+                      <p>A Data Nascimento é obrigatória</p>
+                    </div>
+                </div>
+
+                <div>
+                  <label for="senha">Senha</label>
+                  <div class="input-container">
+                      <input [type]="olho ? 'text' : 'password'" id="senha" formControlName="senha">
+                      <input class="input-checkbox" type="checkbox" (change)="handleCheckboxChange($event)" [checked]="olho" />
+                  </div>
+                    <div *ngIf="senha.invalid && senha.touched" class="error-messages">
+                        <div *ngIf="senha.hasError('required')">
+                          A senha é obrigatória.
+                        </div>
+                        <div *ngIf="senha.hasError('senhaInvalida')">
+                          A senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial.
+                        </div>
+                      </div>
+                </div>
+                  
+            </div>
+            <div class="botao-form">
+                <mat-card-actions class="botaoCadastro">
+                    <a mat-button class="botaoLogin" routerLink="/login"><mat-icon></mat-icon>Login</a>
+                    <button [disabled]="cadastroForm.invalid || cadastroForm.pristine" type="submit">Register</button>
+                </mat-card-actions>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- <div class="formularioCadastro-container">
+  
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="formularioCadastro" #formDir="ngForm">
+    <div class="titulo">
       <div *ngIf="typeUser === true">
         <h1>Formulário Médico</h1>
       </div>
@@ -14,9 +82,9 @@
                 <div>
                     <label for="name">Nome</label>
                     <input type="text" id="name" formControlName="name">
-                    <!-- <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+                    <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
                         <p>O name é obrigatório</p>
-                    </div> -->
+                    </div>
                 </div>
                 <div>
                     <label for="surname">Sobrenome</label>
@@ -84,4 +152,4 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->

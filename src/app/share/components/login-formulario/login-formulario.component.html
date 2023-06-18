@@ -10,7 +10,10 @@
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="senha" id="senha" formControlName="senha">
+                <div class="input-container">
+                    <input [type]="olho ? 'text' : 'password'" id="senha" formControlName="senha">
+                    <input class="input-checkbox" type="checkbox" (change)="handleCheckboxChange($event)" [checked]="olho" />
+                </div>
             </div>
             <div *ngIf="senha.invalid && senha.touched" class="error-messages">
                 <div *ngIf="senha.hasError('required')">

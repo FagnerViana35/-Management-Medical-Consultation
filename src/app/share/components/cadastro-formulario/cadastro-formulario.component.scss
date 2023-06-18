@@ -91,3 +91,33 @@
   margin-right: 20px;
   height: 32px;
 }
+
+/* CSS para o campo de data de nascimento */
+#data_nascimento {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.validation-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.validation-error p {
+  margin: 0;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#senha{
+  width: 30vw;
+  height: 4vh;
+  border-radius: 4px;
+}

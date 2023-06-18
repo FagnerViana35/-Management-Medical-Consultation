@@ -14,7 +14,8 @@ mat-icon-button{
 }
 
 /* Estilos para o botão de fechar o MatSidenav */
-.mat-sidenav mat-toolbar button {
+.mat-sidenav mat-toolbar{
+  font-size: 30px;
   color: #fff;
 }
 
@@ -43,4 +44,10 @@ mat-icon-button{
 
 .mat-drawer-content::-webkit-scrollbar {
   display: none;
+}
+.icone{
+  padding-top: 20px;
+}
+.texto-nav{
+
 }

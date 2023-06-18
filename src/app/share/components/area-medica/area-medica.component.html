@@ -5,6 +5,71 @@
   </header>
 
   <form class="formulario">
+    <!-- <label for="paciente">Buscar paciente:</label>
+    <input type="text" id="paciente" name="paciente" [(ngModel)]="termoBusca">
+    <button type="submit">Buscar</button> -->
+    <button class="formulario-botao"routerLink="/area-medica-consulta">Cadastrar Consulta</button>
+  </form>
+  
+  <div>
+    <h1 class="pacientes">
+      Lista de Pacientes
+    </h1>
+  </div>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Colunas da tabela -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let usuario"> {{ usuario.nome }} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="dataNascimento">
+      <mat-header-cell *matHeaderCellDef> Data de Nascimento </mat-header-cell>
+      <mat-cell *matCellDef="let usuario"> {{ usuario.data_nascimento }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+      <mat-cell *matCellDef="let usuario"> {{ usuario.email }} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="telefone">
+      <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+      <mat-cell *matCellDef="let usuario"> {{ usuario.telefone }} </mat-cell>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="telefone">
+      <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+      <mat-cell *matCellDef="let usuario"> {{ usuario.telefone }} </mat-cell>
+    </ng-container> -->
+  
+    <!-- <ng-container matColumnDef="opcoes">
+      <mat-header-cell *matHeaderCellDef> Opções </mat-header-cell>
+      <mat-cell *matCellDef="let usuario">
+        <button mat-icon-button color="primary">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="primary">
+          <mat-icon>event</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container> -->
+  
+    <!-- Cabeçalho da tabela -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+    <!-- Linhas da tabela -->
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<!-- <div class="area-medica">
+
+  <header class="cabeçalho">
+      <h1>Bem-vindo à Área Médica</h1>
+  </header>
+
+  <form class="formulario">
     <label for="paciente">Buscar paciente:</label>
     <input type="text" id="paciente" name="paciente">
     <button type="submit">Buscar</button>
@@ -41,4 +106,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->

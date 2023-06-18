@@ -15,6 +15,7 @@ export class LoginMedicoFormularioComponent {
   data: any;
   email: string = '';
   senha: string = '';
+  olho:boolean = false;
 
   constructor(private dialog: MatDialog, private router: Router, private medicoService: MedicoService){}
 
@@ -31,17 +32,18 @@ export class LoginMedicoFormularioComponent {
   get getSenha(){
     return this.loginForm.get('senha')!;
   }
+  handleCheckboxChange(event:any){
+    if(event.target.checked === true) this.olho = true;
+    else this.olho = false;
+  }
 
   async login() {
    this.medicoService.login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(response => {
       console.log(response);
       this.data = response;
       console.log("DATA:", this.data);
-      this.data.map((date: any) => {
-        localStorage.setItem('IdMedico', date.id);
-        localStorage.setItem('NomeMedico', date.nomeCompleto);
-        localStorage.setItem('EmailMedico', date.email);
-      });
+      var jsonAux = JSON.stringify(this.data);
+      localStorage.setItem('medico', jsonAux);
       if (response.length === 1) {
         if (response[0].senha === this.loginForm.value.senha) {
           this.router.navigate(['/area-medica']);

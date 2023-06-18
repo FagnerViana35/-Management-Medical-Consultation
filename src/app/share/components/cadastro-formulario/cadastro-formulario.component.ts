@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from './CustomValidators';
 import { Usuario } from 'src/app/interfaces/users.interface';
-import { AuthService } from 'src/app/services/AuthService';
 import { Router } from '@angular/router';
+import { Subscription, take, tap } from 'rxjs';
+import { UserService } from 'src/app/services/userService';
+import { AuthService } from 'src/app/services/AuthService';
 
 @Component({
   selector: 'app-cadastro-formulario',
@@ -12,12 +14,14 @@ import { Router } from '@angular/router';
 })
 export class CadastroFormularioComponent {
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){}
+  
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router){}
 
   cadastroForm!: FormGroup;
   typeUser: boolean = false;
   tipo_template!: number;
-
+  subscription! : Subscription;
+  olho:boolean = false;
   senhaValidator(control: FormControl): { [key: string]: boolean } | null {
     const senha = control.value;
     const uppercaseRegex = /[A-Z]/;
@@ -33,81 +37,64 @@ export class CadastroFormularioComponent {
 
   ngOnInit() {
     this.cadastroForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required]),
-      'surname': new FormControl('', [Validators.required]),
+      'nome': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required, Validators.email]),
-      'cpf': new FormControl(''),
-      'crm': new FormControl(''),
       'senha': new FormControl('', [Validators.required, this.senhaValidator]),
-      'role': new FormControl(false, [Validators.required]),
-      'especialidade':  new FormControl(''),
+      'telefone': new FormControl(''),
+      'data_nascimento':  new FormControl(''),
     }
     );
   }
 
   isChecked: boolean = false;
 
-  get name(){
+  get nome(){
     return this.cadastroForm.get('nome')!;
-  }
-  get surname(){
-    this.tipo_template = 1;
-    console.log(this.tipo_template)
-    return this.cadastroForm.get('surname')!;
-  }
-  get crm(){
-    return this.cadastroForm.get('crm')!;
-  }
-  get senha(){
-    return this.cadastroForm.get('senha')!;
   }
   get email(){
     return this.cadastroForm.get('email')!;
   }
-  get cpf(){
-    return this.cadastroForm.get('cpf')!;
-  }
-  get role(){
+  get senha(){
     return this.cadastroForm.get('senha')!;
   }
-
-  get especialidade(){
-    return this.cadastroForm.get('especialidade')!;
+  get telefone(){
+    return this.cadastroForm.get('telefone')!;
+  }
+  get data_nascimento(){
+    return this.cadastroForm.get('data_nascimento')!;
   }
 
-  handleChange(event: any) {
-    this.typeUser = event.target.checked;
-    this.cadastroForm.get('role')?.setValue(this.typeUser);
-    console.log(this.cadastroForm)
+  handleCheckboxChange(event:any){
+    if(event.target.checked === true) this.olho = true;
+    else this.olho = false;
   }
+
+  
   
   onSubmit() {
-    console.log('Formulario', this.cadastroForm);
-  
-    // Marcar todos os campos como tocados para acionar as validações
-    this.cadastroForm.markAllAsTouched();
-  
-    if (this.cadastroForm.valid) {
-      const usuario: Usuario = this.cadastroForm.value;
-      this.cadastroForm.value.role = this.cadastroForm.value.role ? 1 : 0; // Converte true para 1 e false para 0
-  
-      this.authService.cadastrar(usuario).subscribe(
-        (res) => {
-          console.log('Cadastro realizado com sucesso!');
-          this.cadastroForm.reset();
-          alert('Cadastro realizado com sucesso');
-          this.router.navigate(['']);
-        },
-        (err) => {
-          console.error('Erro ao cadastrar usuário:', err);
-          alert('Erro ao cadastrar usuário');
-        }
-      );
-    } else {
-      // O formulário contém erros, exiba uma mensagem de erro ou tome outra ação apropriada.
-      alert('Por favor, preencha todos os campos corretamente.');
-    }
+    const usuario: Usuario = this.cadastroForm.value;
+      this.subscription = this.userService.listaUsuario().pipe(
+        take(1),
+    tap((response) => {
+          const emailExistente = response.some((usuario) => usuario.email === this.cadastroForm.value.email);
+        if (emailExistente) {
+          alert("Usuário já cadastrado!");
+          console.log("Usuário já cadastrado");
+          return;
+        }else{
+          this.authService.cadastrar(usuario).subscribe(
+            (res) => {
+              console.log('Cadastro realizado com sucesso!');
+              this.cadastroForm.reset();
+              alert('Cadastro realizado com sucesso');
+              this.router.navigate(['']);
+            },
+            (err) => {
+              console.error('Erro ao cadastrar usuário:', err);
+              alert('Erro ao cadastrar usuário');
+            }
+          )
+        }}) 
+        ).subscribe()
   }
-  
-
 }

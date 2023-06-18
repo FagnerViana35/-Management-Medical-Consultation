@@ -43,6 +43,13 @@ import { AvatarModule } from 'ngx-avatars';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AreaUsuarioComponent } from './components/area-usuario/area-usuario.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
+import { CadastroMedicoFormularioComponent } from './components/cadastro-medico-formulario/cadastro-medico-formulario.component';
+import { ConveniosComponent } from './components/convenios/convenios.component';
+import { ConveniosDetalhesPlano3Component } from './components/convenios-detalhes-plano3/convenios-detalhes-plano3.component';
+import { ConveniosDetalhesPlano2Component } from './components/convenios-detalhes-plano2/convenios-detalhes-plano2.component';
+import { ConveniosDetalhesPlano1Component } from './components/convenios-detalhes-plano1/convenios-detalhes-plano1.component';
+import { SaibaMaisComponent } from './components/saiba-mais/saiba-mais.component';
+import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 
 
 @NgModule({
@@ -73,7 +80,14 @@ import { RodapeComponent } from './components/rodape/rodape.component';
     HorariosConsultaComponent,
     DashboardComponent,
     AreaUsuarioComponent,
-    RodapeComponent
+    RodapeComponent,
+    CadastroMedicoFormularioComponent,
+    ConveniosComponent,
+    ConveniosDetalhesPlano1Component,
+    ConveniosDetalhesPlano2Component,
+    ConveniosDetalhesPlano3Component,
+    SaibaMaisComponent,
+    SobreNosComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,6 @@ import { Convenio } from "./convenio.interface";
 
 export interface Medical{
     id?: number;
-    nomeCompleto?: string;
+    nome?: string;
     especialidade?: string;
 }

@@ -1,0 +1,85 @@
+.container{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;  
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .convenios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .convenio-card {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .convenio-card.card-1 {
+    background-image: url(../../../../assets/imgs/pediatra.jpg);
+  }
+  
+  .convenio-card.card-2 {
+    background-image: url(../../../../assets/imgs/adulto.jpg);
+  }
+  
+  .convenio-card.card-3 {
+    background-image: url(../../../../assets/imgs/idoso-4.png);
+  }
+  
+  .convenio-card h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  
+  .convenio-card p {
+    margin-bottom: 0;
+    color: #080707;
+    font-weight: 600;
+  }
+  
+  .convenio-card .preco {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .convenio-card .idades {
+    margin-top: 10px;
+  }
+  
+  .convenio-card .idades p {
+    margin-bottom: 5px;
+  }
+  
+  .convenio-card .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .convenio-card .actions button {
+    background-color: #009688;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  .solicitar-button a{
+    color: #f2f2f2;
+    font-weight: bold;
+    text-decoration: none;
+  }

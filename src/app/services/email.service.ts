@@ -28,3 +28,4 @@ export class EmailService {
     return emailjs.send(this.dadosUser.serviceID, this.dadosUser.templateID, templateParams, this.dadosUser.publicKey);
   }
 }
+

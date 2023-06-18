@@ -1,78 +1,104 @@
 {
   "medicos": [
     {
-      "nomeCompleto": "Dr. Gustavo Padilha",
+      "nome": "Dr(a). Gustavo",
       "email": "gustavo@gmail.com",
-      "crm": "123456",
-      "senha": "123456",
-      "especialidade": "Ginecologia",
+      "crm": "CRM/SP-654321",
+      "senha": "280619V@l",
+      "especialidade": "Ginecologista",
       "id": 1
     },
     {
-      "nomeCompleto": "Luiz",
-      "email": "luiz@gmail.com",
-      "crm": "123456",
-      "senha": "123456",
-      "especialidade": "Cardiologia",
+      "nome": "Dr(a). Fagner",
+      "email": "fagnerviana03@gmail.com",
+      "crm": "CRM/SP-654321",
+      "senha": "280619V@l",
+      "especialidade": "Clinico",
       "id": 2
     }
   ],
   "consultas": [
     {
-      "medicoId": 1,
-      "data": "2023-04-10",
-      "hora": "20:00",
+      "medicoId": 2,
+      "data": "2023-06-04",
+      "hora": "18:08",
       "disponivel": false,
       "escolhido": true,
       "id": 1
     },
     {
-      "medicoId": 1,
-      "data": "2023-04-20",
-      "hora": "20:46",
-      "disponivel": false,
-      "escolhido": true,
+      "medicoId": 2,
+      "data": "2023-06-11",
+      "hora": "23:12",
+      "disponivel": true,
+      "escolhido": false,
       "id": 2
     },
     {
       "medicoId": 2,
-      "data": "2023-04-20",
-      "hora": "20:49",
+      "data": "2023-06-18",
+      "hora": "09:08",
       "disponivel": true,
       "escolhido": false,
       "id": 3
     },
     {
-      "medicoId": 2,
-      "data": "2023-04-18",
-      "hora": "18:00",
+      "medicoId": 1,
+      "data": "2023-06-04",
+      "hora": "23:12",
       "disponivel": true,
       "escolhido": false,
       "id": 4
     },
     {
       "medicoId": 1,
-      "data": "2023-06-15",
-      "hora": "14:29",
-      "disponivel": true,
-      "escolhido": false,
+      "data": "2023-06-25",
+      "hora": "23:15",
+      "disponivel": false,
+      "escolhido": true,
       "id": 5
     },
     {
       "medicoId": 1,
-      "data": "2023-06-21",
-      "hora": "16:38",
+      "data": "2023-06-25",
+      "hora": "23:14",
       "disponivel": true,
       "escolhido": false,
       "id": 6
+    },
+    {
+      "medicoId": 2,
+      "data": "2023-06-05",
+      "hora": "23:50",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 7
+    },
+    {
+      "medicoId": 2,
+      "data": "",
+      "hora": "",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 8
     }
   ],
   "users": [
     {
-      "id": 1,
-      "nomeCompleto": "Fagner Viana",
-      "email": "fagner@gmail.com",
-      "senha": "123456"
+      "nome": "fagner",
+      "email": "fagnerviana03@gmail.com",
+      "senha": "280619V@l",
+      "telefone": "(16) 99999-8888",
+      "data_nascimento": "2023-06-13",
+      "id": 1
+    },
+    {
+      "nome": "Luigi",
+      "email": "gustavo@gmail.com",
+      "senha": "280619V@l",
+      "telefone": "(16) 99999-8888",
+      "data_nascimento": "2023-06-13",
+      "id": 2
     }
   ]
 }

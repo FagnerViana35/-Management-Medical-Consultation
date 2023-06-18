@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginData } from 'src/app/interfaces/login.interface';
 import { AuthService } from 'src/app/services/AuthService';
-
 @Component({
   selector: 'app-login-formulario',
   templateUrl: './login-formulario.component.html',
@@ -15,7 +14,8 @@ export class LoginFormularioComponent {
   loginForm!: FormGroup;
   loginFailed = false;
   token!: string; 
-
+  olho:boolean = false;
+  data: any;
   constructor(private dialog: MatDialog, private router: Router, private authService: AuthService, private formBuilder: FormBuilder){}
 
   senhaValidator(control: FormControl): { [key: string]: boolean } | null {
@@ -29,6 +29,18 @@ export class LoginFormularioComponent {
     }
   
     return null;
+  }
+
+  generateToken(length: number): string {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let token = '';
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * chars.length);
+      token += chars[randomIndex];
+    }
+  
+    return token;
   }
 
   ngOnInit() {
@@ -48,28 +60,35 @@ export class LoginFormularioComponent {
     return this.loginForm.get('senha')!;
   }
 
+  handleCheckboxChange(event:any){
+    if(event.target.checked === true) this.olho = true;
+    else this.olho = false;
+  }
+
   login(): void {
     const loginData: LoginData = {
       email: this.email.value,
       senha: this.senha.value,
     };
-    this.authService.login(loginData).subscribe({
-      next: (response:any) => {
+    this.authService.login(this.email.value, this.senha.value).subscribe(response => {
+      console.log(response);
+      this.data = response;
+      console.log("DATA:", this.data);
+      if (response.length === 1) {
         console.log(response)
-        localStorage.setItem('user', JSON.stringify(response));
-        
-      },
-      error: (error) => {
-        console.log('Ocorreu um erro:', error);
-        alert('Ocorreu um erro verifique os dados e tente novamente.')
-      },
-      complete: () => {
-        console.log("Usuario logado");
-        this.router.navigate(['/home']);
+        if (response[0].senha === this.loginForm.value.senha) {
+          const token = this.generateToken(256); // Gerar token aleatório de 32 caracteres
+          localStorage.setItem('token', token); // Armazenar o token no localStorage
+          this.router.navigate(['/']);
+        } else {
+          alert("Erro de Senha! Verifique os dados");
+          console.log("Senha incorreta");
+        }
+      } else {
+        alert("Erro de E-mail! Verifique os dados");
+        console.log("E-mail incorreto");
       }
-    })
-    
-    
+    });
   }
-}
+}  
 

@@ -10,15 +10,18 @@ import { MedicoService } from 'src/app/services/medico.service';
 })
 export class AreaMedicaConsultasComponent {
   cadastroForm!: FormGroup;
-  idMedico!: number;
+  idMedico!: any;
 
   constructor(private formBuilder: FormBuilder, private medicoService: MedicoService){}
 
   ngOnInit() {
-    const idMedicoString = +(localStorage.getItem('IdMedico') || '');
-    this.idMedico = idMedicoString
-    console.log(typeof idMedicoString);
-    console.log(idMedicoString);
+    const dadosMedico = window.localStorage.getItem('medico');
+    this.idMedico = JSON.parse(dadosMedico ?? 'null');
+    console.log(this.idMedico[0].id);
+
+    // const idMedicoString = +(localStorage.getItem('medico') || '');
+    // this.idMedico = idMedicoString
+    // console.log(typeof idMedicoString);
     this.cadastroForm = this.formBuilder.group({
     'date': new FormControl('', [Validators.required]),
     'hora': new FormControl('', [Validators.required]),
@@ -37,7 +40,7 @@ export class AreaMedicaConsultasComponent {
   
   onSubmit() {
     const consulta: Consulta = {
-      medicoId: this.idMedico,
+      medicoId: this.idMedico[0].id,
       data: this.cadastroForm.value.date,
       hora: this.cadastroForm.value.hora,
       disponivel: true,

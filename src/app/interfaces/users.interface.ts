@@ -1,6 +1,8 @@
 export interface Usuario {
     id: number;
-    cpf: string;
+    nomeCompleto: string; 
     email: string;
-    senha: string;
+    senha?: string;
+    telefone: string;
+    data_nascmento: string;
 }

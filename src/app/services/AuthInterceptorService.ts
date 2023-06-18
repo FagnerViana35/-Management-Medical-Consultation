@@ -12,7 +12,6 @@ export class AuthInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.authService.isAuthenticated) {
       const token = this.authService.getToken();
-      console.log(token)
       // Clone a requisição original e adicione o cabeçalho de autorização
       request = request.clone({
         setHeaders: {

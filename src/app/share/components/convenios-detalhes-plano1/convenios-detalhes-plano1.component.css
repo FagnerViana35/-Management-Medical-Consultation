@@ -1,0 +1,55 @@
+.container{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+.plano-info {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .plano-info h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .plano-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .plano-info p {
+    margin-bottom: 10px;
+  }
+  
+  .plano-info .descricao {
+    font-weight: bold;
+  }
+  
+  .plano-info .detalhes {
+    margin-top: 20px;
+  }
+  
+  .plano-info .detalhes p {
+    margin-bottom: 5px;
+  }
+  
+  .plano-info .empresa-info {
+    margin-top: 30px;
+  }
+  
+  .plano-info .empresa-info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .plano-info .empresa-info p {
+    margin-bottom: 5px;
+  }

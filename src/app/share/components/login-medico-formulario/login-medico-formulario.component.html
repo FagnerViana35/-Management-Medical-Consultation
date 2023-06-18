@@ -11,8 +11,11 @@
                 <!-- <p *ngIf="title.errors?.['maxLenght']">O título é obrigatório</p> -->
             </div>
             <div>
-                <label for="senha">Senha:</label>
-                <input type="senha" id="senha" formControlName="senha">
+                <label for="senha">Senha</label>
+                <div class="input-container">
+                    <input [type]="olho ? 'text' : 'password'" id="senha" formControlName="senha">
+                    <input class="input-checkbox" type="checkbox" (change)="handleCheckboxChange($event)" [checked]="olho" />
+                </div>
             </div>
             <div *ngIf="getSenha.invalid && formDir.submitted" class="validation-error">
                 <p>A senha é obrigatório</p>
@@ -24,7 +27,7 @@
             <mat-card-actions class="botaoLogin">
                 <button type="submit" click="login()">Login</button>
             </mat-card-actions>
+            <a mat-button routerLink="/cadastro-medico" class="botaoRegister">Cadastre-se</a>
         </div>
-        <a mat-button routerLink="/cadastro-medical" class="botaoRegister">Cadastre-se</a>
     </form>
 </div>

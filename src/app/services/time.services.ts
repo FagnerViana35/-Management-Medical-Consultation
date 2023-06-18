@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Horario } from '../interfaces/Time.interface';
 import { Observable } from 'rxjs';
+import { Medico } from '../interfaces/medico.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -14,8 +15,8 @@ import { Observable } from 'rxjs';
       return this.http.get<Horario[]>(`${this.apiUrl}/consultas`);
     }
 
-    getMedicos(): Observable<Horario[]> {
-      return this.http.get<Horario[]>(`${this.apiUrl}/medicos`);
+    getMedicos(): Observable<Medico[]> {
+      return this.http.get<Medico[]>(`${this.apiUrl}/medicos`);
     }
 
     getMedicoById(medicoId: number): Observable<Horario[]> {
@@ -24,7 +25,6 @@ import { Observable } from 'rxjs';
       }
 
     updateHorario(id: Horario, updateObject: any): Observable<Horario> {
-      console.log(updateObject)
       const url = `${this.apiUrl}/consultas/${id}`;
       return this.http.put<any>(url, updateObject);
     }

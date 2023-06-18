@@ -1,0 +1,61 @@
+<div class="formularioLogin-container">
+    <form (ngSubmit)="registrar()" [formGroup]="loginForm" class="formularioLogin" #formDir="ngForm">
+        <div class="input-form">
+            
+            <div>
+                <label for="nome">Nome</label>
+                <input placeholder="Dr(a). Digite Somente o Nome Completo do Médico" type="text" id="nome" formControlName="nome">
+            </div>
+            <div *ngIf="nome.invalid && formDir.submitted" class="error-messages">
+                <p>O nome é obrigatório</p>
+            </div>
+
+            <div>
+                <label for="crm">CRM</label>
+                <input placeholder="Digite só os numeros do CRM" type="text" id="crm" formControlName="crm">
+            </div>
+            <div *ngIf="crm.invalid && formDir.submitted" class="error-messages">
+                <p>O crm é obrigatório</p>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input placeholder="Digite o E-mail" type="text" id="email" formControlName="email">
+            </div>
+            <div *ngIf="email.invalid && formDir.submitted" class="error-messages">
+                <p>O e-mail é obrigatório</p>
+            </div>
+
+            <div>
+                <label for="especialidade">Especialidade</label>
+                <input placeholder="Digite a Especialidade" type="text" id="especialidade" formControlName="especialidade">
+            </div>
+            <div *ngIf="especialidade.invalid && formDir.submitted" class="error-messages">
+                <p>O especialidade é obrigatório</p>
+            </div>
+
+            <div>
+                <label for="senha">Senha</label>
+                <div class="input-container">
+                    <input [type]="olho ? 'text' : 'password'" id="senha" formControlName="senha">
+                    <input class="input-checkbox" type="checkbox" (change)="handleCheckboxChange($event)" [checked]="olho" />
+                </div>
+
+            </div>
+            <div *ngIf="senha.invalid && senha.touched" class="error-messages">
+                <div *ngIf="senha.hasError('required')">
+                  A senha é obrigatória.
+                </div>
+                <div *ngIf="senha.hasError('senhaInvalida')">
+                  A senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial.
+                </div>
+            </div>
+        </div>
+        <div class="botao-form">
+            <mat-card-actions class="botaoLogin">
+                <button [disabled]="loginForm.invalid || loginForm.pristine" type="submit">Register</button>
+            </mat-card-actions>
+            <a class="botaoLogin" mat-button routerLink="/login-medical" class="botaoRegister">Login</a>
+        </div>
+    </form>
+</div>

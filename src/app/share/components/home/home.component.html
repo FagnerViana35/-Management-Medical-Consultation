@@ -10,7 +10,7 @@
       Nossa equipe de consultores está apta a lhe orientar sobre contratação de planos, portabilidade, orçamentos, cotações, propostas, etc.
     </p>
     <mat-card-actions class="botaoVerMais">
-      <button mat-button class="botao">Saber Mais</button>
+      <button routerLink="/saiba_mais" mat-button class="botao">Saber Mais</button>
     </mat-card-actions>
   </div>
   <div class="textLeft">
@@ -43,6 +43,7 @@
       [url] = "card.url"
       [textContent] = "card.textContent"
       [buttoncard] = "card.cardbutton"
+      [routerLink]="card.routerLink"
       [alt] = "card.alt"
       ></app-cards>
     </div>

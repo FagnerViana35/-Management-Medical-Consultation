@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    const token = localStorage.getItem('token');
+      console.log('Foi',!!token)
+    //Add 'implements OnInit' to the class.
+    
+  }
   cardConsulta = [{
     "title": "Marcar consultas online",
     "subtitle":"Marcar consultar",
@@ -24,6 +31,7 @@ cardConvenio = [{
     "cardbutton":"Convenios",
     "alt":"Imagem dos cards",
     "textContent":"Nossa equipe de consultores está apta a lhe orientar sobre contratação de planos, e o melhor para você.",
+    "routerLink": 'area-convenio'
 }]
 
 

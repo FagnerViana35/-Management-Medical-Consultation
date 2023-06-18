@@ -1,125 +1,79 @@
 .area-medica {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+}
 
+.cabeçalho {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .area-medica h1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    background: linear-gradient(to bottom, #194a8b, #81a3e2);
-    padding: 40px;
-    color: white;
-    text-align: center;
-  }
+.formulario {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
+.formulario label {
+  margin-right: 10px;
+}
 
-  .formulario {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: -200px;
-    margin-left: -700px;
-    padding: 20px;
-  }
-  
-  .formulario label {
-    margin-right: 10px;
-  }
-  
-  .formulario input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  .formulario button {
-    padding: 10px 20px;
-    background-color: #194a8b;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .formulario button[type="submit"] {
-    background-color: #26498a;
-    margin-right: 10px;
-  }
+.formulario input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
 
-  .area-medica button:hover {
-    background-color: #537faa;
-  }
+.formulario button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-  .formulario label {
-    margin-right: 10px;
-    color: rgb(18, 18, 119);
-    font-weight: bold;
-  }
+.formulario button:hover {
+  background-color: #0056b3;
+}
 
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  .area-medica table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .area-medica table th,
-  .area-medica table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .area-medica table th {
-    background-color: #194a8b;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .area-medica table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .area-medica table tbody tr:hover {
-    background-color: #e5e5e5;
-  }
+.mat-header-cell,
+.mat-cell {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-  .area-medica table button {
-    padding: 5px 10px;
-    background-color: #436fa8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .area-medica table button:hover {
-    background-color: #08539e;
-  }
-  
-  .area-medica table button:first-child {
-    margin-right: 5px;
-  }
+.mat-header-row {
+  background-color: #f2f2f2;
+}
 
-  .area-medica table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    color: #194a8b;
-  }
-  
-  .area-medica table th {
-    background-color: #194a8b;
-    color: white;
-    font-weight: bold;
-  }
+.mat-cell {
+  background-color: #fff;
+}
+
+.mat-cell button {
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.mat-cell button:hover {
+  color: #007bff;
+}
+.pacientes{
+  display: flex;
+  justify-content: center;
+}
+.formulario-botao{
+  width: 20vw;
+  height: 5vh;
+  border-radius: 4px
+}

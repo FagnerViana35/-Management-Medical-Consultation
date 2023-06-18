@@ -12,13 +12,11 @@ export class MedicoService {
 
   constructor(private http: HttpClient) { }
 
-  cadastrar(medico: Medico): Observable<Medico> {
-    console.log('Teste:',medico);
-    return this.http.post<any>(`${this.apiUrl}/Add`, medico);
+  cadastrarMedico(medico: Medico): Observable<Medico> {
+    return this.http.post<any>(`${this.apiUrl}/medicos`, medico);
   }
 
   cadastrarConsulta(consulta: Consulta): Observable<Medico> {
-    console.log(consulta);
     return this.http.post<any>(`${this.apiUrl}/consultas`, consulta);
   }
   

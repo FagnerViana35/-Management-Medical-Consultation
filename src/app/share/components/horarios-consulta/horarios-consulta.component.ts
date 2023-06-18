@@ -133,6 +133,7 @@ export class HorariosConsultaComponent {
       console.log(horarios)
       this.horariosConsulta = horarios;
     })
+    console.log(this.horariosConsulta)
   }
   
 

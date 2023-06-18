@@ -40,7 +40,7 @@ export class TableMedicalComponent {
       this.medicos = medicos
       this.ELEMENT_DATA = this.medicos.map(medico => ({
         id: medico.id,
-        nome: medico.nomeCompleto,
+        nome: medico.nome,
         especialidade: medico.especialidade
       }));
       this.dataSource.data = this.ELEMENT_DATA;
