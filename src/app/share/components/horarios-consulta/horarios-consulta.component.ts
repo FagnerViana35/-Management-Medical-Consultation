@@ -34,6 +34,7 @@ export class HorariosConsultaComponent {
   updateObject: any;
   horariosConsulta: any;
   id!: number;
+  dadosUser: any;
 
   emailData = {
     from: '',
@@ -86,10 +87,10 @@ export class HorariosConsultaComponent {
       console.log('Horário atualizado com sucesso!');
     });
   }
-
+  
   salvarSelecionados() {
     if (this.checkedSelecionado === true) {
-      this.emailService.sendEmail('Nome do paciente', 'Teste', 'Nome do médico', 'fagner.viana@domvsit.com.br', 'hoje', '28/06/2023')
+      this.emailService.sendEmail(this.dadosUser[0].nome, 'Teste', 'Luiz', 'fagner.viana@domvsit.com.br', 'hoje', this.dadosUser[0].data_nascimento)
         .then((response: { status: any; text: any; }) => {
           console.log('SUCCESS!', response.status, response.text);
         }, (error: any) => {
@@ -128,6 +129,16 @@ export class HorariosConsultaComponent {
   }
 
   ngOnInit(): void {
+    const dadosMedico = window.localStorage.getItem('usuario');
+    this.dadosUser = JSON.parse(dadosMedico ?? 'null');
+    console.log(this.dadosUser[0].data_nascimento);
+    console.log(this.dadosUser[0].email);
+    console.log(this.dadosUser[0].id);
+    console.log(this.dadosUser[0].nome);
+    console.log(this.dadosUser[0].telefone);
+
+//     const usuarioString = localStorage.getItem('usuario');
+// const usuario = JSON.parse(usuarioString);
     this.id = this.router.snapshot.params['id'];
     this.horarioService.getMedicoById(this.id).subscribe(horarios =>{
       console.log(horarios)

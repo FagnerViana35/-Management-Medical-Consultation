@@ -15,6 +15,14 @@
       "senha": "280619V@l",
       "especialidade": "Clinico",
       "id": 2
+    },
+    {
+      "nome": "Dr(a). Luiz",
+      "email": "luiz@luiz.com",
+      "crm": "CRM/SP-654321",
+      "senha": "280619V@l",
+      "especialidade": "Pediatra",
+      "id": 3
     }
   ],
   "consultas": [
@@ -46,16 +54,16 @@
       "medicoId": 1,
       "data": "2023-06-04",
       "hora": "23:12",
-      "disponivel": true,
-      "escolhido": false,
+      "disponivel": false,
+      "escolhido": true,
       "id": 4
     },
     {
       "medicoId": 1,
       "data": "2023-06-25",
       "hora": "23:15",
-      "disponivel": false,
-      "escolhido": true,
+      "disponivel": true,
+      "escolhido": false,
       "id": 5
     },
     {
@@ -81,6 +89,22 @@
       "disponivel": true,
       "escolhido": false,
       "id": 8
+    },
+    {
+      "medicoId": 3,
+      "data": "2023-06-19",
+      "hora": "04:03",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 9
+    },
+    {
+      "medicoId": 3,
+      "data": "2023-06-27",
+      "hora": "00:08",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 10
     }
   ],
   "users": [
@@ -99,6 +123,14 @@
       "telefone": "(16) 99999-8888",
       "data_nascimento": "2023-06-13",
       "id": 2
+    },
+    {
+      "nome": "Valquiria",
+      "email": "valquiria@gmail.com",
+      "senha": "280619V@l",
+      "telefone": "(16) 99999-8888",
+      "data_nascimento": "2023-06-20",
+      "id": 3
     }
   ]
 }

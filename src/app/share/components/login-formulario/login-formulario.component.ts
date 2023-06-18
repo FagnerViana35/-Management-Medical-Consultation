@@ -72,6 +72,7 @@ export class LoginFormularioComponent {
     };
     this.authService.login(this.email.value, this.senha.value).subscribe(response => {
       console.log(response);
+      localStorage.setItem('usuario', JSON.stringify(response));
       this.data = response;
       console.log("DATA:", this.data);
       if (response.length === 1) {

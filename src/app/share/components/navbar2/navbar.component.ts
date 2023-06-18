@@ -18,7 +18,3 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() { }
 }
-
-localStorage.removeItem('token');
-
-localStorage.getItem('token')
