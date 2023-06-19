@@ -40,7 +40,8 @@ body {
 }
 
 .input-container {
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .input-container input[type="password"] {
@@ -50,12 +51,12 @@ body {
   border-radius: 5px;
 }
 
-.input-container .input-checkbox {
+/* .input-container .input-checkbox {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-}
+} */
 
 .botao-form {
   text-align: left;

@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('medico');
+    localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
   }
 

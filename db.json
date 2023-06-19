@@ -23,6 +23,14 @@
       "senha": "280619V@l",
       "especialidade": "Pediatra",
       "id": 3
+    },
+    {
+      "nome": "Dr(a). Maria do Carmo",
+      "email": "maria@carmo.com",
+      "crm": "CRM/SP-654321",
+      "senha": "280619V@l",
+      "especialidade": "Ortopedista",
+      "id": 4
     }
   ],
   "consultas": [
@@ -62,8 +70,8 @@
       "medicoId": 1,
       "data": "2023-06-25",
       "hora": "23:15",
-      "disponivel": true,
-      "escolhido": false,
+      "disponivel": false,
+      "escolhido": true,
       "id": 5
     },
     {
@@ -105,6 +113,30 @@
       "disponivel": true,
       "escolhido": false,
       "id": 10
+    },
+    {
+      "medicoId": 4,
+      "data": "2023-06-13",
+      "hora": "16:58",
+      "disponivel": false,
+      "escolhido": true,
+      "id": 11
+    },
+    {
+      "medicoId": 4,
+      "data": "",
+      "hora": "20:56",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 12
+    },
+    {
+      "medicoId": 4,
+      "data": "2023-06-28",
+      "hora": "21:56",
+      "disponivel": true,
+      "escolhido": false,
+      "id": 13
     }
   ],
   "users": [
@@ -131,6 +163,14 @@
       "telefone": "(16) 99999-8888",
       "data_nascimento": "2023-06-20",
       "id": 3
+    },
+    {
+      "nome": "Julio Mendes",
+      "email": "julio@julio.com",
+      "senha": "280619V@l",
+      "telefone": "(16) 99999-8888",
+      "data_nascimento": "2023-06-29",
+      "id": 4
     }
   ]
 }
