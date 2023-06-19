@@ -91,7 +91,7 @@ export class HorariosConsultaComponent {
   salvarSelecionados() {
     console.log(this.dadosUser[0].nome)
     if (this.checkedSelecionado === true) {
-      this.emailService.sendEmail(this.dadosUser[0].nome, 'Teste', 'Luiz', 'fagner.viana@domvsit.com.br', 'hoje', this.dadosUser[0].data_nascimento)
+  this.emailService.sendEmail(this.dadosUser[0].nome, 'Teste', 'Luiz', 'fagner.viana@domvsit.com.br', 'hoje', '18/06/2023')
         .then((response: { status: any; text: any; }) => {
           console.log('SUCCESS!', response.status, response.text);
         }, (error: any) => {
